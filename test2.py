@@ -1,3 +1,4 @@
-from typing import union
-def a(date)->union[str,int]:
-      pass 
+x = 10  
+def a():
+      b =10 ;
+print(b)

@@ -1,0 +1,1 @@
+print(str(type(1))=="<class 'int'>")

@@ -1,16 +1,9 @@
-class Solution:
-    def addDigits(self, num: int) -> int:
-        ans= 0 ; 
-        def f(n):
-            ans = 0 ;
-            while n:
-                ans += n%10
-                n//=10;
-            return ans
-        ans = f(num);
-        while ans >=10:
-            ans = f(ans);
-        return ans;
-a = Solution()
-for i in range(1000):
-      print(i,a.addDigits(i));
+def f(i):
+    if(i<=1):
+        return 1
+    else :
+        return i*f(i-1);
+sum =0 ;
+for i in range(1,100):
+    sum+=f(i);
+    print(sum);

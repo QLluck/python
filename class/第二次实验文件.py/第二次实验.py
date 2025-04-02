@@ -83,27 +83,21 @@ def class_5():
     print("24软工智能一班袁鑫晨 2415929709 6组6号")
 
 def class_6():
-    lis =[ eval(i) for i in  input("输入参数").split()];
-    print(lis)
-    def is_int(s): #自己写的判断是否为整数和字母
-        for i in s:
-            if ord('0')<=ord(i) and ord(i)<=ord('9'):
-                continue
-            else :
-                return False
-        return True
+    lis =[ eval(i) for i in  input("输入参数").split()];#用eval()把字符串转换成表达式
+    
+   
     def my_sum(*args):
         sum = 0 ;
         print(*args)
         
 
         for i in list(*args) :
-            if is_int(i):
+            if str(type(i))=="<class 'int'>":
                 sum += int(i) ;
         return sum
     print( my_sum(lis))
     print("24软工智能一班袁鑫晨 2415929709 6组6号")
-class_6()
+
 
 
 
@@ -126,14 +120,9 @@ def class_7() :
       print(a(m,n))
       print("24软工智能一班袁鑫晨 2415929709 6组6号");
 
+
 def class_8():
-    persons = [{'name': 'Dong', 'age': 37},
-
-               {'name': 'Zhang', 'age': 40},
-
-               {'name': 'Li', 'age': 50},
-
-               {'name': 'Dong', 'age': 43}]
+    persons = eval(input())
     def f(lis):
 
         lis =sorted(persons, key=lambda x:(x["name"],-x["age"]))
@@ -144,30 +133,38 @@ def class_8():
     print("24软工智能一班袁鑫晨 2415929709 6组6号")
 
 
-import datetime
-def f(n,m):
-        td=(n-m).seconds;
-        if td/3600/24 /365>=1:
-            print(f"{n}>{m}:{m}")
-            return
-        elif td/3600 /24 >=1:
-            print(f"{n}>{m}:{td}天前")
-        elif td/3600>=1:
-            print(f"{n}>{m}:{td}小时前")
-        elif td>=0:
-            print(f"{n}>{m}:{td}秒前")
-        elif td<0:
-            print(f"{n}<{m}:未来时间")
 
 def class_9():
     import datetime
-    import data1
-    ji = input("输入基准时间")
-    ji = datetime.datetime.strptime(ji, "%Y-%m-%d %H:%M:%S")
-    ce =  input("输入测试时间")
-    ce = datetime.datetime.strptime(ce, "%Y-%m-%d %H:%M:%S")
-    data1.f(ce,ji)
-    print(ji);
+    import date1
+    # ji = input("输入基准时间")
+    # ce =  input("输入测试时间")
+    ce="2020-02-29 09:30:30"
+    ji ="2018-03-01 09:00:00"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-01-01 09:00:00"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-02-01 09:00:00"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-02-29 08:00:00"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-02-29 09:29:20"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-02-29 09:29:50"
+    date1.f(ce,ji)
+    ce="2020-02-29 09:30:30"
+    ji ="2020-02-29 09:30:40"
+    date1.f(ce,ji)
+    print("24软工智能一班袁鑫晨 2415929709 6组6号")
+    
+    
+
+   
 
 
 def class_10():
@@ -186,17 +183,36 @@ def class_10():
 
     print(f(a1,b1));
     print(f(a2,b2))
+    print("24软工智能一班袁鑫晨 2415929709 6组6号")
+
 
 def class_11():
+    import copy
     s=input();
-    ans=[]
-    def f(s):
-        return s==s[::-1]
-    for i in range(1,len(s)+1):
-        for j in range(len(s)-i+1):
-            if f(s[j:j+i]):
-                ans.append(s[j:j+i]);
-    print(ans);
+    ans=[]#用来存储答案列表
+    ans1=[]#用来存储一个可能分割字符串的列表
+    def dfs(i:int,s:str):#i为当前索引值,s为字符串
+        
+        if(i>=len(s)):#如果索引大于字符串长度len(s)就结束 说明已经找到一个答案ans1 将ans1添加进列表ans
+                ans.append(copy.deepcopy(ans1));
+                print(f"其中一个可能为{ans1}")
+                return;
+        for j in range(1,len(s)):#j 为分割字符串的长度
+            if(i+j>len(s)):#如果 当前索引 + 字符串长度  大于len(s)则 返回 
+                return;
+            if(s[i:j+i]==s[i:j+i][::-1]):#判断 当前切片是否为回文字符串
+                ans1.append(s[i:i+j])
+            else :#如果不是 切片长度加1
+                continue;
+            
+            dfs(i+j,s)#如果当前切片是回文字符串 则索引前进到i+j 也就是切片长度的下一位 继续查找回文字符串
+            ans1.pop()#回溯  找完一种可能之后 删除当前的切片  继续寻找下一个合适切片
+    
+        
+    dfs(0,s);
+    print(f"总答案为{ans}");
+    print("24软工智能一班袁鑫晨 2415929709 6组6号")
+
 
 
 

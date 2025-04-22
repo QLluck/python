@@ -11,6 +11,15 @@ response=urllib.request.urlopen(request) #发送请求
 
 content =response.read().decode('utf-8') #解码
 
-print(content);
+
 import re 
-ret = re.findall(pattern="")
+ret = re.findall(r"https?://[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:/[^\s]*)?",content);
+ans = [];
+mp={};
+for i in ret:
+   if i not in mp:
+      mp[i]=1;
+      ans.append(i);
+for i in ans:
+   
+   print(i);

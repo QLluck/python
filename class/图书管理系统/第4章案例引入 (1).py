@@ -76,7 +76,9 @@ if flag == "1":
                 print("用户名包含非法字{}，请重新输入。".format(reg_name))
                 # 让用户重新输用户名。
                 reg_name = input("请输入注册用户名：\n")
+                
             else:
+                
                 break
 
     # 2、用户名是否已注册，如果已注册，让用户重新填写用户名
@@ -86,8 +88,12 @@ if flag == "1":
     else:
         # 3、如果用户名合法且不存在，则进行更进一步的注册操作，输入密码判断密码是否合法。
         while True:
-            reg_psw = input("请输入注册密码：\n")
+            
             #reg_psw = jiami()
+            #reg_psw = input("请输入注册密码：\n")
+            print(1);
+            reg_psw = jiami()
+            print(2);
             print(reg_psw)
             # 4、判断密码长度
             if len(reg_psw) < 6:

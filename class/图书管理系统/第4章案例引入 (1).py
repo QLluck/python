@@ -1,15 +1,33 @@
-import getpass, os, sys
+import msvcrt, os, sys
 '''
-getpass.getpass() 用于安全地获取用户密码输入，
-不会在控制台显示输入的字符，适用于各种操作系统。
+msvcrt.getche() 用于读取一个键盘按键，
+并且以byte型返回，但是不会在控制台（一般是命令行）回显。
 '''
 
 # 密码加密显示
 def jiami():
     print('请输入注册密码: ')
-    # 使用getpass模块，这是跨平台的，在macOS上也能工作
-    password = getpass.getpass(prompt='')
-    return password
+    li = []
+    while 1:
+        ch = msvcrt.getch()
+        print(ch)
+        if ch == b'\r':     # 回车
+            # return b''.join(li).decode()  # 把list转换为字符串返回
+            break
+        elif ch == b'\x08':     # 退格
+            if li:
+                li.pop()
+                msvcrt.putch(b'\b')
+                msvcrt.putch(b' ')
+                msvcrt.putch(b'\b')
+        # Esc
+        elif ch == b'\x1b':
+            break
+        else:
+            li.append(ch)
+            msvcrt.putch(b'*')
+            print(li)
+    return b''.join(li).decode()
 
 
 #---------------【系统初始化】---------------
@@ -68,8 +86,8 @@ if flag == "1":
     else:
         # 3、如果用户名合法且不存在，则进行更进一步的注册操作，输入密码判断密码是否合法。
         while True:
-            #reg_psw = input("请输入注册密码：\n")
-            reg_psw = jiami()
+            reg_psw = input("请输入注册密码：\n")
+            #reg_psw = jiami()
             print(reg_psw)
             # 4、判断密码长度
             if len(reg_psw) < 6:
@@ -194,3 +212,6 @@ elif flag == "2":
 #---------------【用户既不选择登录也不选择注册】---------------
 else:
     print("请输入数字1或者2！")
+
+
+

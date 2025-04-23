@@ -1,3 +1,4 @@
+import msvcrt, os, sys
 class User:
     allId=1
     def __init__(self,username,code,name="未知"):
@@ -7,6 +8,7 @@ class User:
         self.id=User.allId
         User.allId+=1
         self.borrowList:list[Book]=[]
+        self.permission=0
         
         
     def printMenu():
@@ -63,12 +65,22 @@ class User:
         self.borrowList.pop(num)
         print("归还成功")
         
-    def deleteUser(self):
-        print("警告:一旦注销,个人信息全部消失")
+    def deleteSelfUser(self):
+        print("警告:一旦注销,信息全部消失")
         num=input("输入YES确认");
         if(num=='YES'):
-            num=input("再次输入YES确认,注意:确认后用户数据全部消失");
+            num=input("再次输入YES确认,注意:确认后数据全部消失");
             if(num=="YES"):
+                
+                id = Data.findUserId(self)
+                Data.userList.pop(id)
+                print("删除成功")
+            else :
+                print("取消成功")
+                
+                    
+        else  :
+            print("取消成功")
                 
                    
          
@@ -79,6 +91,58 @@ class User:
     
     def __str__(self):
         return f"用户名:{self.username} id号:{self.id} 真实姓名:{self.name}"
+class Admin(User):
+    def __init__(self,username,code,name="未知"):
+        super().__itit__(username,code,name="未知")
+        self.permission=1#权限表示
+    def printMenu(self):
+        welcome = ["===========================",
+                "1. 注册",
+                "2. 登录",
+                "3. 图书借阅界面",
+                "4. 退出登录",
+                "5. 退出系统",
+                "6. 注销账号",
+                "7. 增加用户",
+                "8. 删除用户",
+                "9. 修改用户",
+                "10.查询用户"
+                "==========================="]
+        for i in welcome:
+            print("%s" % i.center(18, "　"))
+    def findUser(self):
+        id = Data.findUser()
+        print("查询成功")
+        print(Data.bookList[id])
+        return id 
+    def changeUser(self):
+        print("选择要修改的用户")
+        id = Data.findUser()
+        welcome = ["===========================",
+        "1. 修改用户名",
+        "2. 修改姓名",
+        "==========================="]
+        for i in welcome:
+            print("%s" % i.center(18, "　"))
+        
+        pass
+    def deleteUser(self):
+        id =Data.findUser()
+        if(id==-1):
+            print("删除失败")
+            return ;
+        Data.userList.pop(id);
+        print("删除成功")
+    def deleteBook(self):
+        id =Data.findBook()
+        if(id==-1):
+            print("删除失败")
+            return ;
+        Data.bookList.pop(id);
+        print("删除成功")
+        
+            
+    
 class Book:
     def __init__(self,name,author):
         self.name=name
@@ -87,6 +151,276 @@ class Book:
         self.borrowUser :User= 0 #后面直接指向学生
     def __str__(self):
         return f"书名:{self.name} 作者名:{self.author}"   
+
+class Data:
+    userList=[]
+    bookList=[]
+    sensitive_character = ["傻", "屁", "草", "操", "垃圾", "z", "蠢", "笨", "呆"]
+    @staticmethod
+    def findBook():
+        welcome = ["===========================",
+                "1. 名字查询",
+                "2. 作者查询",
+                "3. 查询全部"
+                "==========================="]
+        for i in welcome:
+            print("%s" % i.center(18, "　"))
+        a=Data.dataInputInt(1,3)
+        p=0
+        if(a==1):
+            name=Data.dataInputStr();
+            find=[]
+            for i in Data.bookList :
+                if name in i.name :
+                    find.append(i)
+            if(find==0):
+                print("未找到相关书籍")
+                return -1 
+            print(f"找到{len(find)}条查询结果")
+            for i in range(len(find)):
+                print(f"{i}.{find(i)}")
+            print("输入要选择的书籍")
+            num = Data.dataInputInt(0,len(find)-1)
+            return num 
+        elif (a==2):
+            name=Data.dataInputStr();
+            find=[]
+            for i in Data.bookList :
+                if name in i.author :
+                    find.append(i)
+            if(find==0):
+                print("未找到相关书籍")
+                return -1 
+            print(f"找到{len(find)}条查询结果")
+            for i in range(len(find)):
+                print(f"{i}.{find(i)}")
+            print("输入要选择的书籍")
+            num = Data.dataInputInt(0,len(find)-1)
+            return num
+        elif (a==3):
+            Data.showAllBook()
+            return -1
+            
+    @staticmethod
+    def findUser():
+        welcome = ["===========================",
+                "1. 名字查询",
+                "2. 用户名查询",
+                "3. 查询所有"
+                "==========================="]
+        for i in welcome:
+            print("%s" % i.center(18, "　"))
+        a=Data.dataInputInt(1,3)
+        p=0
+        if(a==1):
+            name=Data.dataInputStr();
+            find=[]
+            for i in Data.userList :
+                if name in i.username :
+                    find.append(i)
+            if(find==0):
+                print("未找到相关用户")
+                return -1
+            print(f"找到{len(find)}条查询结果")
+            for i in range(len(find)):
+                print(f"{i}.{find(i)}")
+            print("输入要选择的用户")
+            num = Data.dataInputInt(0,len(find)-1)
+            return num
+        elif (a==2):
+            name=Data.dataInputStr();
+            find=[]
+            for i in Data.userList :
+                if name in i.name :
+                    find.append(i)
+            if(find==0):
+                print("未找到相关用户")
+                return -1 
+            print(f"找到{len(find)}条查询结果")
+            for i in range(len(find)):
+                print(f"{i}.{find(i)}")
+            print("输入要选择的用户")
+            num = Data.dataInputInt(0,len(find)-1)
+            return num
+        elif (a==3):
+            Data.showAllUser()
+        
+            
+            
+            
+            
+                    
+            
+            
+            
+    @staticmethod
+    def dataInputInt(l,r):
+        num=0
+        while(1):
+            num=input("请输入编号:")
+            #判断输入是否全文数字
+            flag=0;
+            for i in range(len(num)):
+                if '0'<=num and num<='9':
+                    continue;
+                else :
+                    flag=1;
+                    break;
+            num=int(num)
+            if(num<l and r<num):
+                flag=1
+            if(flag):
+                print("输入不合法,请重新输入")
+                continue;
+        return num
+    @staticmethod
+    def dataInputStr():
+        str=0
+        while(1):
+            str=input("请输入:")
+            #判断输入是否有敏感词
+            flag=0;
+            for i in Data.sensitive_character :
+                if i in str:
+                    flag=1;
+                    str.replace(i,'*')
+            if(flag):
+                print(f"输入的 {str} 内含有敏感字符")
+                print("输入不合法,请重新输入")
+                continue;
+        return str
+    @staticmethod
+    def findUserId(user):
+        for i in  range(len(Data.userList)):
+            if Data.userList[i].id == user.id:
+                return i
+        return -1 #未找到用户
+    @staticmethod
+    def findBookId(book):
+        for i in  range(len(Data.bookList)):
+            if Data.bookList[i].name == book.name and  Data.bookList[i].author == book.author :
+                return i
+        return -1 #未找到书籍
+    @staticmethod
+    def usernameCheck(str):#用户名重名检测
+        for i in Data.userList:
+            if i.username==str:
+                return 1
+        return 0 
+    @staticmethod
+    def booknameCheck(str):#书名重名检测
+        for i in Data.bookList:
+            if i.name==str:
+                return 1
+        return 0 
+    @staticmethod
+    def userAdd():
+        while(1):
+            print("输入用户名")
+            username = Data.dataInputStr()
+            if(Data.usernameCheck(username)):
+                print("用户名重复,请重新输入")
+                continue;
+            else :
+                break;
+        while(1):
+            print("请输入密码")
+            password = Data.jiami()
+            flag=0
+            #密码检测 
+            numint=0#数字
+            num_word_up=0#大写字母
+            num_word_low=0#小写字母
+            num_other=0#其他字符
+            for i in password:
+                if '0'<=i and i <='9':
+                    numint+=1;
+                elif 'a'<=i and i<='z':
+                    num_word_low+=1
+                elif 'A'<=i and i<='Z':
+                    num_word_up+=1
+                else :
+                    num_other+=1
+            if numint==0:
+                flag=1
+                print("密码中无数字")
+            if num_word_up==0:
+                flag=1
+                print("密码中无大写字母")
+            if num_word_low==0:
+                flag=1
+                print("密码中无小写字母")
+            if num_other==0:
+                flag=1
+                print("密码中无其他字符")
+            if len(password)<8:
+                flag=1
+                print("密码长度小于8!")
+            if (flag==1):
+                print("请重新输入密码")
+                continue;
+            break;
+        usertemp = User(username,password)
+        Data.userList.append(usertemp)
+        print("添加成功");
+    @staticmethod
+    def bookAdd():
+        while(1):
+            print("请输入书名")
+            name =Data.dataInputStr()
+            if(Data.booknameCheck(name)):
+                print("书名重复,请重新输入")
+                continue;
+            else :
+                break;
+        print("请输入作者名")
+        author = Data.dataInputStr()
+        booktemp = Book(name,author)
+        Data.bookList.append(booktemp)
+        print("添加成功")
+        
+            
+                
+            
+            
+    @staticmethod
+    def jiami():
+        password = ""
+        while True:
+            char = msvcrt.getch()
+            if char == b'\r':  # 回车表示输入结束
+                print()
+                break
+            elif char == b'\x08':  # 退格键
+                if password:
+                    password = password[:-1]
+                    print('\b \b', end='', flush=True)
+            else:
+                password += char.decode()
+                print('*', end='', flush=True)
+        return password
+    @staticmethod
+    def showAllBook():
+        for i in range(len(Data.bookList)):
+            print(f"{i}.{Data.bookList[i]}")
+    @staticmethod
+    def showAllUser():
+        for i in range(len(Data.userList)):
+            print(f"{i}.{Data.userList[i]}")
+            
+    
+        
+        
+        
+        
+        
+        
+            
+        
+        
+        
+    
+    
 
         
         

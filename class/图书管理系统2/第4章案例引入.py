@@ -165,6 +165,7 @@ vip_name = [vip_info[i]["name"] for i in range(len(vip_info))]
 
 # 建立敏感词库
 sensitive_character = ["傻", "屁", "草", "操", "垃圾", "z", "蠢", "笨", "呆"]
+
 # 管理员
 adminList = ["张三", "李四"]
 

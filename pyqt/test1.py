@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication,QWidget,QPushButton,QLabel,QLineEdit,QDesktopWidget
+from PyQt5.QtWidgets import QApplication,QWidget,QPushButton,QLabel,QLineEdit,QDesktopWidget,QVBoxLayout,QHBoxLayout,QFormLayout
 import sys 
 #创建程序
 app = QApplication(sys.argv)
@@ -7,18 +7,32 @@ w = QWidget()
 #label
 # label = QLabel("不知道:")
 # label.setParent(w);
-label=QLabel("密码:",w);
+form= QFormLayout();
+label=QLabel("密码:");
 #设置长和宽 两队坐标 (1) ,(2) 1是
+
 label.setGeometry(30,30,30,30); #左上角，和
+
 #按钮类
-btn = QPushButton("注册",w)
+btn = QPushButton("注册")
 btn.setGeometry(80,80,300,30)
 
+
+
 #输入框
-edit=QLineEdit("输入账号:",w);
+edit=QLineEdit("输入账号:");
 edit.setGeometry(80,30,1000,30);
+#form.setWidget(edit);
+
+
+w.setLayout(form)
+
 #设置窗口标题
 w.setWindowTitle("窗口");
+#设置布局器
+#w.setLayout(hlayout);
+
+
 #窗口大小 
 
 len=500;

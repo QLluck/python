@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>registerForm</class>
- <widget class="QWidget" name="registerForm">
+ <class>loginForm</class>
+ <widget class="QWidget" name="loginForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,6 +23,13 @@
    <string notr="true">* {
     background-color: #ffffff;
     color: #808080;
+}
+QTextBrowser {
+    border: none; /* 隐藏边框 */
+    background-color: transparent; /* 背景颜色 */
+    color: #808080; /* 文字颜色 */
+    border-radius: 10px; /* 圆角 */
+    padding: 5px; /* 内边距 */
 }
 QPushButton {
     background-color: #e9e7ef;
@@ -298,9 +305,9 @@ color: rgba(0, 0, 0, 128);</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;h1 align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f0f2f5;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:xx-large; font-weight:600; color:rgba(0,0,0,0.498039);&quot;&gt;欢迎来到 &lt;/span&gt;&lt;/h1&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:24px; color:rgba(114,46,209,0.498039);&quot;&gt;📚 &lt;/span&gt;&lt;/p&gt;
-&lt;h2 align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:x-large; font-weight:600; color:rgba(0,0,0,0.498039);&quot;&gt;图书管理系统 &lt;/span&gt;&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;h1 align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f0f2f5;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:xx-large; font-weight:600; color:rgba(0,0,0,0.494118);&quot;&gt;欢迎来到 &lt;/span&gt;&lt;/h1&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:24px; color:rgba(114,46,209,0.494118);&quot;&gt;📚 &lt;/span&gt;&lt;/p&gt;
+&lt;h2 align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial','sans-serif'; font-size:x-large; font-weight:600; color:rgba(0,0,0,0.494118);&quot;&gt;图书管理系统 &lt;/span&gt;&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

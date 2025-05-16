@@ -24,6 +24,13 @@
     background-color: #ffffff;
     color: #808080;
 }
+QTextBrowser {
+    border: none; /* 隐藏边框 */
+    background-color: transparent; /* 背景颜色 */
+    color: #808080; /* 文字颜色 */
+    border-radius: 10px; /* 圆角 */
+    padding: 5px; /* 内边距 */
+}
 QPushButton {
     background-color: #e9e7ef;
     border-radius: 10px;

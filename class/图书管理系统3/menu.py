@@ -1,4 +1,4 @@
-import msvcrt, os, sys
+import os, sys
 class User:
     allId=1
     def __init__(self,username,code,name="未知"):#初始化user
@@ -530,22 +530,23 @@ class Data:
                 
             
             
-    @staticmethod
-    def jiami():
-        password = ""
-        while True:
-            char = msvcrt.getch()
-            if char == b'\r':  # 回车表示输入结束
-                print()
-                break
-            elif char == b'\x08':  # 退格键
-                if password:
-                    password = password[:-1]
-                    print('\b \b', end='', flush=True)
-            else:
-                password += char.decode()
-                print('*', end='', flush=True)
-        return password
+    # @staticmethod
+    # def jiami():
+    #     password = ""
+    #     while True:
+    #         char = msvcrt.getch()
+    #         if char == b'\r':  # 回车表示输入结束
+    #             print()
+    #             break
+    #         elif char == b'\x08':  # 退格键
+    #             if password:
+    #                 password = password[:-1]
+    #                 print('\b \b', end='', flush=True)
+    #         else:
+    #             password += char.decode()
+    #             print('*', end='', flush=True)
+    #     return password
+    
     @staticmethod
     def showAllBook():
         for i in range(len(Data.bookList)):
@@ -617,9 +618,12 @@ def main():
             continue;
             
         elif a==3:
+ 
             return     
 init()
-main()   
+if __name__=="__main__":
+    
+    main()   
             
     
         

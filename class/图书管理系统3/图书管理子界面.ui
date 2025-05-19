@@ -20,7 +20,7 @@
       <item>
        <widget class="QLabel" name="label_8">
         <property name="text">
-         <string>当前借阅书籍</string>
+         <string> 图书馆书籍</string>
         </property>
        </widget>
       </item>
@@ -53,7 +53,7 @@
            <x>0</x>
            <y>0</y>
            <width>678</width>
-           <height>125</height>
+           <height>279</height>
           </rect>
          </property>
          <widget class="QWidget" name="layoutWidget_3">
@@ -93,74 +93,10 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_11">
+       <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>图书馆书籍</string>
+         <string>添加书籍</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
-        <item>
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>查询</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QScrollArea" name="scrollArea_2">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>678</width>
-           <height>125</height>
-          </rect>
-         </property>
-         <widget class="QWidget" name="layoutWidget_4">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>20</y>
-            <width>373</width>
-            <height>30</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_12">
-           <item>
-            <widget class="QLineEdit" name="lineEdit_3">
-             <property name="text">
-              <string>书名: </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_11">
-             <property name="text">
-              <string>查看</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_10">
-             <property name="text">
-              <string>借阅/已借出</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </widget>
        </widget>
       </item>
      </layout>

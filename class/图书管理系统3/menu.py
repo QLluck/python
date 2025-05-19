@@ -1,7 +1,7 @@
 import os, sys
 class User:
     allId=1
-    def __init__(self,username,code,name="未知"):#初始化user
+    def __init__(self,username,code,name=""):#初始化user
         self.username=username
         self.code=code
         self.name=name
@@ -9,6 +9,7 @@ class User:
         User.allId+=1
         self.borrowList:list[Book]=[]
         self.permission=0
+        self.status=""
         
         
     def printMenu(self):#打印普通用户菜单
@@ -621,6 +622,7 @@ def main():
  
             return     
 init()
+p=0
 if __name__=="__main__":
     
     main()   

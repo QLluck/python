@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget,QMessageBox
 from PyQt5 import uic
 import menu
 class loginForm(QWidget):
@@ -12,8 +12,8 @@ class loginForm(QWidget):
         self.ui.pushButton.clicked.connect(self.login)
         #QApplication.instance().aboutToQuit.connect(self.on_application_exit)
     def open_registerForm(self):
-        self.registerForm=registerForm()
-        self.registerForm.show()
+        
+        register.show()
         self.hide()
     def app_exit(slef):
         QApplication.exit()
@@ -36,28 +36,33 @@ class loginForm(QWidget):
        
         
         if password == menu.Data.userList[flag].code :
-            
-                self.mainWindow = mainWindow()
-                self.mainWindow.show()
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("登录成功")
+                msg_box.setText("登录成功!")
+
+                # 显示消息框
+                msg_box.exec_()
+                
+                mainW.show()
                 self.hide()
                 menu.p=menu.Data.userList[flag]
                 if(menu.p.permission==0):
-                    self.mainWindow.ui.label.setText(f"用户:{menu.p.username}")
-                    self.mainWindow.ui.pushButton_4.hide()
-                    self.mainWindow.ui.pushButton_5.hide()
+                    mainW.ui.label.setText(f"用户:{menu.p.username}")
+                    mainW.ui.pushButton_4.hide()
+                    mainW.ui.pushButton_5.hide()
                 elif menu.p.permission==1 :
-                    self.mainWindow.ui.label.setText(f"管理员:{menu.p.username}")
+                    mainW.ui.label.setText(f"管理员:{menu.p.username}")
                 self.init_proData()#初始化主界面
         else:
             self.print_textBrowser_2("<p class=\"custom-text\">密码错误</p>")
             
     def init_proData(self):
-        self.mainWindow.ui.textEdit_7.setText(menu.p.username)
-        self.mainWindow.ui.textEdit_10.setText(len(menu.p.code )* '*')
-        self.mainWindow.ui.textEdit_8.setText(menu.p.name)
-        self.mainWindow.ui.textEdit_11.setText(str(menu.p.id))
-        self.mainWindow.ui.textEdit_9.setText(menu.p.status)
-        self.mainWindow.ui.textEdit_12.setText( str(menu.p.permission) )
+        mainW.ui.textEdit_7.setText(menu.p.username)
+        mainW.ui.textEdit_10.setText( len(menu.p.code )* '*')
+        mainW.ui.textEdit_8.setText(menu.p.name)
+        mainW.ui.textEdit_11.setText(str(menu.p.id))
+        mainW.ui.textEdit_9.setText(menu.p.status)
+        mainW.ui.textEdit_12.setText( str(menu.p.permission) )
         
            
         
@@ -107,8 +112,8 @@ class registerForm(QWidget):#注册按钮函数
         self.ui.lineEdit_7.textChanged.connect(self.checkUserId)
         self.ui.pushButton.clicked.connect(self.register)
     def open_loginForm(self):#登录按钮函数
-        self.loginForm=loginForm()
-        self.loginForm.show();
+        
+        login.show();
         self.hide()
     def app_exit(slef):
         QApplication.exit()
@@ -178,9 +183,15 @@ class registerForm(QWidget):#注册按钮函数
             return ;
         flag = self.checkPassward(password)
         if(flag==0):
-            self.loginForm=loginForm()
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("注册成功")
+            msg_box.setText("注册成功!")
+
+            # 显示消息框
+            msg_box.exec_()
+           
             
-            self.loginForm.show()
+            login.show()
             self.hide()
             self.loginForm.print_textBrowser_2("<p class=\"custom-text2\">注册成功,请登录</p>")
             usertemp = menu.User(username,password)
@@ -219,27 +230,196 @@ class mainWindow(QWidget):
         super().__init__()
         self.ui=uic.loadUi(__file__.replace("界面联系.py","主界面.ui"),self)
         self.ui.pushButton.clicked.connect(self.login);
-        self.ui.pushButton_2.clicked.connect(self.app_exit);
+        self.ui.pushButton_7.clicked.connect(self.open_changeProDataForm);
+        self.ui.pushButton_2.clicked.connect(self.app_exit);    
         self.ui.pushButton_6.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(0),self.init_proData()) );
-        self.ui.pushButton_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex(1));
+        self.ui.pushButton_3.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(1),self.findProBook(self.lineEdit_4.text())) );
         self.ui.pushButton_4.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex(2));
         self.ui.pushButton_5.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex(3));
-
-        
+        self.ui.lineEdit_4.textChanged.connect(self.findProBook)
+    def findProBook(self,text):
+        find=[]
+        for  i in menu.Data.bookList:
+            if text :
+                if text in i.name:
+                    find.append(i)
+            else :
+                find.append(i) 
+        for i in find:
+            temp=self.ui.horizontalLayout_10
+            self.scrollAreaWidgetContents.addLayout(temp)
     def app_exit(slef):
         QApplication.exit()
     def login(self):
-        self.loginWindow=loginForm()
-        self.loginWindow.show()
+        
+        login.show()
         self.hide()
     def init_proData(self):
         self.ui.textEdit_7.setText(menu.p.username)
-        self.ui.textEdit_10.setText(len(menu.p.code )* '*')
+        self.ui.textEdit_10.setText(len(menu.p.code)*'*' )
         self.ui.textEdit_8.setText(menu.p.name)
         self.ui.textEdit_11.setText(str(menu.p.id))
         self.ui.textEdit_9.setText(menu.p.status)
         self.ui.textEdit_12.setText( str(menu.p.permission) )
+    def open_changeProDataForm(self):
+       
+        change.show()
+        self.hide()
+        self.init_changeProDataForm();
+    def init_changeProDataForm(self):
+       change.textEdit.setText(menu.p.username)
+       change.textEdit_4.setText(menu.p.code)
+       change.textEdit_2.setText(menu.p.name)
+       change.textEdit_5.setText(str(menu.p.id))
+       change.textEdit_3.setText(menu.p.status)
+       change.textEdit_6.setText( str(menu.p.permission) )
+        
+        
+        
+class changeProDataForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui=uic.loadUi(__file__.replace("界面联系.py","修改信息界面.ui"),self)
+        #信号联系
+        self.ui.pushButton.clicked.connect(self.return_mainWindow)
+        self.ui.pushButton_2.clicked.connect(self.changeData)
+        self.ui.textEdit_4.textChanged.connect(self.checkPassward)
+        self.ui.textEdit.textChanged.connect(self.checkUserId)
+        self.ui.textEdit_2.textChanged.connect(self.checkName)
+        self.ui.pushButton.clicked.connect(self.changeData)
+        
+    def return_mainWindow(self):
+       
+        mainW.show()
+        self.hide()
+    def changeData(self):
+        username =self.ui.textEdit.toPlainText()
+        password = self.ui.textEdit_4.toPlainText()
+        name= self.ui.textEdit_2.toPlainText()
+        print([password])
+        if menu.p.username != ''.join(username) :
+            if(menu.Data.usernameCheck(username)!=-1):
+                self.print_textBrowser("<p class=\"custom-text\">该用户名已存在</p>")
+         
+                return ;
+        if menu.p.code!=''.join(password):
+            flag = self.checkPassward()
+            if flag!=0:
+                return;
+        menu.p.username =username
+        menu.p.code = password
+        menu.p.name=name
+        msg_box = QMessageBox(self)
+        msg_box.setWindowTitle("修改成功")
+        msg_box.setText("修改成功!")
 
+        # 显示消息框
+        msg_box.exec_()
+        mainW.init_proData()
+        mainW.show()
+        self.hide()
+           # self.loginForm.print_textBrowser_2("<p class=\"custom-text2\">注册成功,请登录</p>")     
+    
+    def checkPassward(self):
+        password = self.ui.textEdit_4.toPlainText()
+        flag=0
+        #密码检测 
+        numint=0#数字
+        num_word_up=0#大写字母
+        num_word_low=0#小写字母
+        num_other=0#其他字符
+        num_int_html=""
+        num_word_up_html=""
+        num_word_low_html=""
+        num_other_html=""
+        num_len_html=""
+        right_html=""
+        for i in password:
+            if '0'<=i and i <='9':
+                numint+=1;
+            elif 'a'<=i and i<='z':
+                num_word_low+=1
+            elif 'A'<=i and i<='Z':
+                num_word_up+=1
+            else :
+                num_other+=1
+        if numint==0:
+            flag=1
+            num_int_html= "<p class=\"custom-text\">密码中无数字</p>"
+        if num_word_up==0:
+            flag=1
+            num_word_up_html= "<p class=\"custom-text\">密码中无大写字母</p>"
+        if num_word_low==0:
+            flag=1
+            num_word_low_html= "<p class=\"custom-text\">密码中无小写字母</p>"
+        if num_other==0:
+            flag=1
+            num_other_html= "<p class=\"custom-text\">密码中无小其他字符</p>"
+        if len(password)<8:
+            flag=1
+            num_len_html= "<p class=\"custom-text\">密码长度小于8</p>"
+        if (flag==0):
+            right_html="<p class=\"custom-text2\">密码符合要求</p>"
+        html_content =  num_int_html +num_word_up_html+ num_word_low_html+num_other_html + num_len_html+right_html
+        self.print_textBrowser(html_content)
+        return flag
+    def checkUserId(self):
+        str=self.ui.textEdit.toPlainText();
+        #判断输入是否有敏感词
+    # print(str)
+        flag=0;
+        for i in menu.Data.sensitive_character :
+            if i in str:
+                flag=1;
+                str=str.replace(i,'*'*len(i))
+                # print(str)
+        right=""
+        if(flag):
+            self.ui.textEdit.setText(str)
+            right="<p class=\"custom-text\">输入中有敏感词请重新输入</p>"
+        self.print_textBrowser(right)
+    def checkName(self):
+        str=self.ui.textEdit_2.toPlainText()
+        #判断输入是否有敏感词
+    # print(str)
+        flag=0;
+        for i in menu.Data.sensitive_character :
+            if i in str:
+                flag=1;
+                str=str.replace(i,'*'*len(i))
+                # print(str)
+        right=""
+        if(flag):
+            self.ui.textEdit_2.setText(str)
+            right="<p class=\"custom-text\">输入中有敏感词请重新输入</p>"
+        self.print_textBrowser(right)
+    def print_textBrowser(self,text):
+            html_content = f"""
+<html>
+    <body>
+          <style>
+                    .custom-text {{
+                        color: #ff2121; /* 设置字体颜色为 #ff2121 */
+                        font-family: 'Arial', sans-serif;
+                        text-align: center;
+                        font-size: 10px; /* 字体大小 */
+                        line-height: 0.3; /* 行间距 */
+                        
+                    }}
+                     .custom-text2 {{
+                        color: #00e500; /* 设置字体颜色为 #ff2121 */
+                        font-family: 'Arial', sans-serif;
+                        text-align: center;
+                        font-size: 10px; /* 字体大小 */
+                        line-height: 0.3; /* 行间距 */
+                    }}
+                </style>
+             
+                {text}
+    </body>
+</html>
+"""     
+            self.ui.textBrowser.setHtml(html_content)      
 def save_data():
     print("正常退出")
 
@@ -248,6 +428,11 @@ if __name__=="__main__":
     app = QApplication(sys.argv)
     app.aboutToQuit.connect(save_data)
     login=loginForm();
+    register=registerForm()
+    mainW=mainWindow()
+    change=changeProDataForm()
     login.show()
+    # w1 = changeProDataForm()
+    # w1.show()
     sys.exit(app.exec_())
     

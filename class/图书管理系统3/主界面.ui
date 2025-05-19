@@ -374,8 +374,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>706</width>
-               <height>302</height>
+               <width>96</width>
+               <height>26</height>
               </rect>
              </property>
              <widget class="QWidget" name="layoutWidget_3">
@@ -445,8 +445,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>706</width>
-               <height>302</height>
+               <width>96</width>
+               <height>26</height>
               </rect>
              </property>
              <widget class="QWidget" name="layoutWidget_4">
@@ -530,8 +530,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>706</width>
-               <height>634</height>
+               <width>96</width>
+               <height>26</height>
               </rect>
              </property>
              <widget class="QWidget" name="layoutWidget_5">
@@ -622,8 +622,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>706</width>
-               <height>634</height>
+               <width>96</width>
+               <height>26</height>
               </rect>
              </property>
              <widget class="QWidget" name="layoutWidget_6">

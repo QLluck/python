@@ -1,11 +1,18 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget,QMessageBox
+import os
+from PyQt5.QtWidgets import QApplication, QWidget,QMessageBox, QTextEdit, QPushButton,  QHBoxLayout,QPushButton
 from PyQt5 import uic
 import menu
+def resource_path(relative_path):
+    """获取资源文件的绝对路径，适应打包后的环境"""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 class loginForm(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui=uic.loadUi(__file__.replace("界面联系.py","登录界面完美.ui"),self)
+        ui_path = resource_path("图书管理系统3/登录界面完美.ui")
+        self.ui=uic.loadUi(ui_path,self)
         #信号联系
         self.ui.pushButton_2.clicked.connect(self.open_registerForm)
         self.ui.pushButton_3.clicked.connect(self.app_exit)
@@ -104,7 +111,8 @@ class loginForm(QWidget):
 class registerForm(QWidget):#注册按钮函数
     def __init__(self):
         super().__init__()
-        self.ui=uic.loadUi(__file__.replace("界面联系.py","注册界面完美.ui"),self)
+        ui_path = resource_path("图书管理系统3/注册界面完美.ui")
+        self.ui=uic.loadUi(ui_path,self)
         
         self.ui.pushButton_2.clicked.connect(self.open_loginForm)
         self.ui.pushButton_3.clicked.connect(self.app_exit)
@@ -228,26 +236,204 @@ class registerForm(QWidget):#注册按钮函数
 class mainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui=uic.loadUi(__file__.replace("界面联系.py","主界面.ui"),self)
+        ui_path = resource_path("图书管理系统3/主界面.ui")
+        self.ui=uic.loadUi(ui_path,self)
         self.ui.pushButton.clicked.connect(self.login);
         self.ui.pushButton_7.clicked.connect(self.open_changeProDataForm);
         self.ui.pushButton_2.clicked.connect(self.app_exit);    
         self.ui.pushButton_6.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(0),self.init_proData()) );
-        self.ui.pushButton_3.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(1),self.findProBook(self.lineEdit_4.text())) );
-        self.ui.pushButton_4.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex(2));
-        self.ui.pushButton_5.clicked.connect(lambda: self.ui.stackedWidget.setCurrentIndex(3));
+        self.ui.pushButton_3.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(1),self.findProBook(self.lineEdit_4.text()),self.findallBook(self.lineEdit_2.text()) ) );
+        self.ui.pushButton_4.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentIndex(2) ,self.findallBook2(self.lineEdit_5.text()) )  );
+        self.ui.pushButton_5.clicked.connect(lambda:( self.ui.stackedWidget.setCurrentIndex(3),self.findallUser(self.lineEdit_7.text()) ) );
+        self.ui.pushButton_14.clicked.connect(self.addBook);
+        self.ui.pushButton_17.clicked.connect(self.addUser);
+        
+
         self.ui.lineEdit_4.textChanged.connect(self.findProBook)
-    def findProBook(self,text):
-        find=[]
-        for  i in menu.Data.bookList:
-            if text :
+        self.ui.lineEdit_2.textChanged.connect(self.findallBook)
+        self.ui.lineEdit_5.textChanged.connect(self.findallBook2)
+    def addBook(self):
+        ab.show()
+        self.hide()
+    def addUser(self):
+        au.show()
+        self.hide()
+    def findProBook(self, text):
+        #print(text)
+        # 调用 clear_layout 函数清空 verticalLayout_2
+        self.clear_layout(self.ui.verticalLayout_2)
+
+        self.find = []
+        it =0 
+        for i in menu.p.borrowList:
+            if text:
                 if text in i.name:
-                    find.append(i)
-            else :
-                find.append(i) 
-        for i in find:
-            temp=self.ui.horizontalLayout_10
-            self.scrollAreaWidgetContents.addLayout(temp)
+                    self.find.append([i,it])
+                    #print(f"{text}{i.name}")
+            elif not text:
+                self.find.append([i,it])
+            it +=1
+        #print(find)
+        
+        for i in self.find:
+            # 创建水平布局
+            layout = QHBoxLayout()
+
+            # 创建 QTextEdit 控件并添加到布局
+            text_edit = QTextEdit()
+            text_edit.setPlaceholderText("书名：")
+            text_edit.setText(i[0].name)
+            layout.addWidget(text_edit)
+
+            # 创建按钮并添加到布局
+  
+
+            return_button = QPushButton("归还")
+            layout.addWidget(return_button)
+            return_button.clicked.connect(lambda checked, num= i[1] : self.return_book(num))
+
+            # 将布局添加到 verticalLayout_2
+            self.ui.verticalLayout_2.addLayout(layout)
+    def findallBook(self, text):
+        #print(text)
+        # 调用 clear_layout 函数清空 verticalLayout_2
+        self.clear_layout(self.ui.verticalLayout_10)
+
+        self.find = []
+        it =0 
+        for i in menu.Data.bookList:
+            if text:
+                if text in i.name:
+                    self.find.append([i,it])
+                    #print(f"{text}{i.name}")
+            elif not text:
+                self.find.append([i,it])
+            it +=1
+        #print(find)
+        
+        for i in self.find:
+            # 创建水平布局
+            layout = QHBoxLayout()
+
+            # 创建 QTextEdit 控件并添加到布局
+            text_edit = QTextEdit()
+            text_edit.setPlaceholderText("书名：")
+            text_edit.setText(i[0].name)
+            layout.addWidget(text_edit)
+
+            # 创建按钮并添加到布局
+  
+
+            return_button = QPushButton("借阅")
+            layout.addWidget(return_button)
+            return_button.clicked.connect(lambda checked, num= i[1] : self.borrow_book(num))
+
+            # 将布局添加到 verticalLayout_2
+            self.ui.verticalLayout_10.addLayout(layout)
+            
+    def findallBook2(self, text):
+        #print(text)
+        # 调用 clear_layout 函数清空 verticalLayout_2
+        self.clear_layout(self.ui.verticalLayout_11)
+
+        self.find = []
+        it =0 
+        for i in menu.Data.bookList:
+            if text:
+                if text in i.name:
+                    self.find.append([i,it])
+                    #print(f"{text}{i.name}")
+            elif not text:
+                self.find.append([i,it])
+            it +=1
+        #print(find)
+        
+        for i in self.find:
+            # 创建水平布局
+            layout = QHBoxLayout()
+
+            # 创建 QTextEdit 控件并添加到布局
+            text_edit = QTextEdit()
+            text_edit.setPlaceholderText("书名：")
+            text_edit.setText(i[0].name)
+            layout.addWidget(text_edit)
+
+            # 创建按钮并添加到布局
+  
+
+            return_button = QPushButton("修改信息")
+            layout.addWidget(return_button)
+            return_button.clicked.connect(lambda checked, num= i[1] : self.change_book(num))
+
+            # 将布局添加到 verticalLayout_2
+            self.ui.verticalLayout_11.addLayout(layout)
+    def findallUser(self, text):
+        #print(text)
+        # 调用 clear_layout 函数清空 verticalLayout_2
+        self.clear_layout(self.ui.verticalLayout_12)
+
+        self.find = []
+        it =0 
+        for i in menu.Data.userList:
+            if text:
+                if text in i.username:
+                    self.find.append([i,it])
+                    #print(f"{text}{i.name}")
+            elif not text:
+                self.find.append([i,it])
+            it +=1
+        #print(find)
+        
+        for i in self.find:
+            # 创建水平布局
+            layout = QHBoxLayout()
+
+            # 创建 QTextEdit 控件并添加到布局
+            text_edit = QTextEdit()
+            text_edit.setPlaceholderText("用户：")
+            text_edit.setText(i[0].username)
+            layout.addWidget(text_edit)
+
+            # 创建按钮并添加到布局
+  
+
+            return_button = QPushButton("修改信息")
+            layout.addWidget(return_button)
+            return_button.clicked.connect(lambda checked, num= i[1] : self.change_user(num))
+
+            # 将布局添加到 verticalLayout_2
+            self.ui.verticalLayout_12.addLayout(layout)
+            
+    def return_book(self,num):
+        book=self.find[num];
+        menu.p.borrowList[num].borrow=0;
+        menu.p.borrowList[num].borrowUser=0
+        menu.p.borrowList.pop(num)
+        self.findProBook('')
+    def borrow_book(self,num):
+        menu.Data.bookList[num].borrowuser=menu.p
+        menu.Data.bookList[num].borrow=1
+        menu.p.borrowList.append(menu.Data.bookList[num])
+        self.findProBook('')
+    def change_book(self,num):
+        cb.id=num;
+        cb.show()
+        self.hide()
+    def change_user(self,num):
+        cu.id=num
+        cu.show()
+        self.hide()
+        
+        
+        
+    def clear_layout(self, layout):
+
+        while layout.count():
+            child = layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+            elif child.layout():
+                self.clear_layout(child.layout()) 
     def app_exit(slef):
         QApplication.exit()
     def login(self):
@@ -279,7 +465,9 @@ class mainWindow(QWidget):
 class changeProDataForm(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui=uic.loadUi(__file__.replace("界面联系.py","修改信息界面.ui"),self)
+        
+        ui_path = resource_path("图书管理系统3/修改信息界面.ui")
+        self.ui=uic.loadUi(ui_path,self)
         #信号联系
         self.ui.pushButton.clicked.connect(self.return_mainWindow)
         self.ui.pushButton_2.clicked.connect(self.changeData)
@@ -420,9 +608,81 @@ class changeProDataForm(QWidget):
 </html>
 """     
             self.ui.textBrowser.setHtml(html_content)      
-def save_data():
-    print("正常退出")
+class changeBook(QWidget):
+    def __init__(self):
+        super().__init__()
+        ui_path = resource_path("图书管理系统3/书籍信息修改页面.ui")
+        self.ui=uic.loadUi(ui_path,self)
+        self.ui.pushButton.clicked.connect(self.return_main)
+        self.ui.pushButton_2.clicked.connect(self.save)
+        self.id=-1
+    def return_main(self):
+        mainW.show()
+        self.hide()
+    def save(self):
+        menu.Data.bookList[self.id].name=self.ui.lineEdit.text()
+        menu.Data.bookList[self.id].author=self.ui.lineEdit_2.text()
+        mainW.findallBook2('')
+        mainW.show()
+        self.hide()
+class addBook(QWidget):
+    def __init__(self):
+        super().__init__()
+        ui_path = resource_path("图书管理系统3/书籍添加页面.ui")
+        self.ui=uic.loadUi(ui_path,self)
+        self.ui.pushButton.clicked.connect(self.return_main)
+        self.ui.pushButton_2.clicked.connect(self.save)
+        self.id=-1
+    def return_main(self):
+        mainW.show()
+        self.hide()
+    def save(self):
+        temp=menu.Book(self.ui.lineEdit.text(),self.ui.lineEdit_2.text())
+        menu.Data.bookList.append(temp)
+        mainW.findallBook2('')
+        mainW.show()
+        self.hide()
 
+def save_data():
+    menu.save_users_to_csv( __file__.replace("界面联系.py","users.csv"))
+    menu.save_books_to_csv( __file__.replace("界面联系.py","books.csv") )
+class addUser(QWidget):
+    def __init__(self):
+        super().__init__()
+        ui_path = resource_path("图书管理系统3/添加用户界面.ui")
+        self.ui=uic.loadUi(ui_path,self)
+        self.ui.pushButton.clicked.connect(self.return_main)
+        self.ui.pushButton_2.clicked.connect(self.save)
+        self.id=-1
+    def return_main(self):
+        mainW.show()
+        self.hide()
+    def save(self):
+        temp=menu.User(self.ui.lineEdit.text(),self.ui.lineEdit_2.text())
+        menu.Data.userList.append(temp)
+        mainW.findallUser('')
+        mainW.show()
+        self.hide()
+class changeUser(QWidget):
+    def __init__(self):
+        super().__init__()
+        ui_path = resource_path("图书管理系统3/用户修改页面.ui")
+        self.ui=uic.loadUi(ui_path,self)
+        self.ui.pushButton.clicked.connect(self.return_main)
+        self.ui.pushButton_2.clicked.connect(self.save)
+        self.id=-1
+    def return_main(self):
+        mainW.show()
+        self.hide()
+    def save(self):
+        menu.Data.userList[self.id].name=self.ui.lineEdit.text()
+        menu.Data.userList[self.id].author=self.ui.lineEdit_2.text()
+        #menu.Data.UserList.append(temp)
+        mainW.findallUser('')
+        mainW.show()
+        self.hide()
+
+ # 递归清空子布局
     
 if __name__=="__main__":
     app = QApplication(sys.argv)
@@ -431,8 +691,11 @@ if __name__=="__main__":
     register=registerForm()
     mainW=mainWindow()
     change=changeProDataForm()
+    cb=changeBook()
+    ab=addBook()
+    au=addUser()
+    cu=changeUser()
     login.show()
     # w1 = changeProDataForm()
     # w1.show()
     sys.exit(app.exec_())
-    

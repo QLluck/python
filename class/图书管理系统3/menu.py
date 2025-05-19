@@ -1,4 +1,5 @@
 import os, sys
+import csv
 class User:
     allId=1
     def __init__(self,username,code,name=""):#初始化user
@@ -11,7 +12,8 @@ class User:
         self.permission=0
         self.status=""
         
-        
+    def to_csv(self):
+        return [self.username, self.code]
     def printMenu(self):#打印普通用户菜单
         welcome = ["===========================",
                     "1. 注册",
@@ -291,8 +293,24 @@ class Book:
             self.name=name
         if(author):
             self.author=author
-        
+    
 
+    def to_csv(self):
+        return [self.name, self.author]
+
+def save_users_to_csv(filename):
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Username", "Code"])
+        for user in Data.userList:
+            writer.writerow(user.to_csv())
+
+def save_books_to_csv(filename):
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Name", "Author"])
+        for book in Data.bookList:
+            writer.writerow(book.to_csv())
 class Data:
     userList=[]
     bookList=[]
@@ -575,8 +593,27 @@ class Data:
             print(f"密码错误 还剩{chance}次机会")
             chance-=1
         return -1 
-            
-            
+def load_users_from_csv(filename):
+    
+    with open(filename, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            if len(row) >= 2:
+                user = User(row[0], row[1])
+                Data.userList.append(user)
+  
+
+def load_books_from_csv(filename):
+    books = []
+    with open(filename, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            if len(row) >= 2:
+                book = Book(row[0], row[1])
+                Data.bookList.append(book)
+    
 def init():
     p1 = User("张三","12345")
     p2 = User("1","1")
@@ -588,6 +625,7 @@ def init():
     Data.bookList.append(b2)
     a1 = Admin("0","0")
     Data.userList.append(a1)
+
 def main():
     while(1):
         welcome = ["===========================",

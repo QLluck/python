@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>865</width>
-    <height>776</height>
+    <width>887</width>
+    <height>793</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -104,7 +104,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout">
@@ -374,43 +374,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>96</width>
-               <height>26</height>
+               <width>695</width>
+               <height>304</height>
               </rect>
              </property>
-             <widget class="QWidget" name="layoutWidget_3">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>10</y>
-                <width>373</width>
-                <height>30</height>
-               </rect>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_10">
-               <item>
-                <widget class="QLineEdit" name="lineEdit">
-                 <property name="text">
-                  <string>书名: </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_9">
-                 <property name="text">
-                  <string>查看</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_8">
-                 <property name="text">
-                  <string>归还</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_2"/>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
@@ -445,43 +417,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>96</width>
-               <height>26</height>
+               <width>695</width>
+               <height>304</height>
               </rect>
              </property>
-             <widget class="QWidget" name="layoutWidget_4">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>20</y>
-                <width>373</width>
-                <height>30</height>
-               </rect>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_12">
-               <item>
-                <widget class="QLineEdit" name="lineEdit_3">
-                 <property name="text">
-                  <string>书名: </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_11">
-                 <property name="text">
-                  <string>查看</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_10">
-                 <property name="text">
-                  <string>借阅/已借出</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_10"/>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
@@ -530,43 +474,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>96</width>
-               <height>26</height>
+               <width>695</width>
+               <height>637</height>
               </rect>
              </property>
-             <widget class="QWidget" name="layoutWidget_5">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>10</y>
-                <width>373</width>
-                <height>30</height>
-               </rect>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_14">
-               <item>
-                <widget class="QLineEdit" name="lineEdit_6">
-                 <property name="text">
-                  <string>书名: </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_12">
-                 <property name="text">
-                  <string>查看</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_13">
-                 <property name="text">
-                  <string>修改信息</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_11"/>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
@@ -622,43 +538,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>96</width>
-               <height>26</height>
+               <width>695</width>
+               <height>637</height>
               </rect>
              </property>
-             <widget class="QWidget" name="layoutWidget_6">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>10</y>
-                <width>373</width>
-                <height>30</height>
-               </rect>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_16">
-               <item>
-                <widget class="QLineEdit" name="lineEdit_8">
-                 <property name="text">
-                  <string>用户</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_15">
-                 <property name="text">
-                  <string>查看</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_16">
-                 <property name="text">
-                  <string>修改信息</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12"/>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>

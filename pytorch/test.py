@@ -1,25 +1,60 @@
-# 导入os模块，用于与操作系统进行交互，例如设置环境变量、文件操作等
-import os 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+df = pd.read_csv("test1Data.csv")
+npData = df.values
+npx = npData[:,0]
+npy=npData[:,1]
+theta0= np.random.rand()
+theta1=np.random.rand()
+def f(x):
+    return theta0 + theta1 *x
+def E(x,y):
+    return 0.5*np.sum( (y - f(x) )**2 )
+mu=npx.mean()
+sigma=npx.std()
+def standardize(x):
+    return (x - mu)/sigma
+npz = standardize(npx)
+ETA=1e-3
+diff=1
+count=0
+error = E(npz, npy)
+theta0List=[]
+theta1List=[]
+while diff > 1e-2 :
+    tmp0 = theta0 - ETA*np.sum(f(npz)-npy)
+    tmp1= theta1 -ETA*np.sum((f(npz)-npy)*npz)
+    theta0 = tmp0 
+    theta1 = tmp1; 
+    
+    current_error = E(npz,npy)
+    diff = error - current_error
+    error = current_error
+    
+    count+=1
+    theta0List.append(theta0)
+    theta1List.append(theta1)
 
-# 导入numpy库，通常用于数值计算，处理数组和矩阵等数据结构
-import numpy as np 
 
-# 导入torch库，这是PyTorch深度学习框架的主模块，用于各种深度学习任务
-import torch 
 
-# 导入torch.nn模块，提供了神经网络相关的类和函数，如各种层、损失函数等
-import torch.nn as nn 
 
-# 从torch.utils.data模块中导入Dataset和DataLoader类
-# Dataset用于封装数据集，DataLoader用于加载数据集中的数据，提供批量加载、打乱顺序等功能
-from torch.utils.data import Dataset, DataLoader 
+fig, ax = plt.subplots() 
+x = np.linspace(-3, 3, 100)
+line, = ax.plot(x, theta0List[0] + theta1List[0]*x)
+def update(frame):    
+    
+    num=frame%count# 定义动画更新函数，每帧调用一次
+    ax.plot(npz, npy, 'o')
+    line.set_ydata(theta0List[num]+theta1List[num]*x )  # 更新曲线的y值，实现相位移动
+    # 不设置坐标轴范围，让Matplotlib自动调整
+    return line, 
+ani = FuncAnimation(                # 创建动画对象
+    fig,                            # 指定图形对象
+    update,                         # 指定更新函数
+    frames=range(100),              # 帧数范围(0到99)
+    interval=50                     # 帧间隔(毫秒)，控制动画速度
+)
 
-# 导入torch.optim模块，通常简写为optimizer，提供了各种优化算法，如SGD、Adam等，用于训练模型时更新模型参数
-import torch.optim as optimizer 
-
-batch_size = 16
-# 批次的大小
-lr = 1e-4
-# 优化器的学习率
-max_epochs = 100
-os.environ['CUDA_VISIBLE_DEVICES'] = '0' # 指明调用的GPU为0,1号
+plt.show()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>887</width>
-    <height>790</height>
+    <width>968</width>
+    <height>819</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,49 +21,155 @@
   </property>
   <property name="styleSheet">
    <string notr="true">* {
-    background-color: #ffffff;
-    color: #808080;
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
 }
-QTextBrowser {
-    border: none; /* 隐藏边框 */
-    background-color: transparent; /* 背景颜色 */
-    color: #808080; /* 文字颜色 */
-    border-radius: 10px; /* 圆角 */
-    padding: 5px; /* 内边距 */
+
+QWidget {
+    background-color: #f5f5f5;
+    color: #333333;
 }
-QPushButton {
-    background-color: #e9e7ef;
-    border-radius: 10px;
+
+QLabel {
+    color: #4a4a4a;
+    font-weight: 500;
     padding: 5px;
-    border: none; /* 移除边框 */
-    outline: none; /* 移除焦点轮廓 */
+}
+
+QTextBrowser, QTextEdit {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 8px;
+    color: #4a4a4a;
+}
+
+QTextEdit:disabled {
+    background-color: #f8f8f8;
+    color: #666666;
+}
+
+QPushButton {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: #4a4a4a;
+    font-weight: 500;
+    min-height: 32px;
 }
 
 QPushButton:hover {
-    background-color: #c0ebd7;
+    background-color: #d4d4d4;
 }
 
 QPushButton:pressed {
-    background-color: #88ada6;
+    background-color: #c0c0c0;
 }
 
-QPushButton:focus {
-    border: none; /* 确保焦点时没有边框 */
-}
 QLineEdit {
-    background-color: #e9e7ef;
-    border: none; /* 去掉边框 */
-    border-radius: 10px; /* 圆角 */
-    padding: 5px;
-    color: #3d3b4f; /* 输入字体颜色 */
-    border-bottom: 2px solid #3d3b4f; /* 底部下划线 */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 8px;
+    color: #4a4a4a;
+    min-height: 24px;
 }
-QLineEdit:hover {
-    background-color: #d0d7e5; /* 鼠标悬停时的背景颜色 */
-}
+
 QLineEdit:focus {
-    background-color: #b8c0d0; /* 获得焦点时的背景颜色 */
-    border-bottom: 2px solid #88ada6; /* 获得焦点时的下划线颜色 */
+    border: 2px solid #a0a0a0;
+}
+
+QLineEdit:hover {
+    border: 1px solid #a0a0a0;
+}
+
+QScrollArea {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+QFrame {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin: 2px;
+}
+
+#widget { /* 左侧菜单栏 */
+    background-color: #f0f0f0;
+    border-right: 1px solid #e0e0e0;
+    padding: 10px;
+}
+
+#widget QPushButton { /* 左侧菜单按钮 */
+    text-align: left;
+    padding-left: 20px;
+    background-color: transparent;
+    border-radius: 4px;
+    margin: 2px 0px;
+    font-size: 14px;
+}
+
+#widget QPushButton:hover {
+    background-color: #e5e5e5;
+}
+
+#widget QPushButton:pressed {
+    background-color: #d9d9d9;
+}
+
+#label { /* 用户信息标签 */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    padding: 10px 5px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+QStackedWidget {
+    background-color: #ffffff;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    border: none;
+    background-color: #f5f5f5;
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #c0c0c0;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #a0a0a0;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+/* 实验和用户列表项样式 */
+QFrame[frameShape=&quot;5&quot;] { /* Box Frame */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px;
+}
+
+QFrame[frameShape=&quot;5&quot;]:hover {
+    border: 1px solid #c0c0c0;
+    background-color: #fafafa;
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
@@ -151,7 +257,7 @@ QLineEdit:focus {
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout">
@@ -396,16 +502,16 @@ QLineEdit:focus {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
-             <widget class="QLabel" name="label_10">
-              <property name="text">
-               <string>查询</string>
+             <widget class="QLineEdit" name="lineEdit_4">
+              <property name="placeholderText">
+               <string>输入关键词搜索未完成实验...</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_4">
+             <widget class="QPushButton" name="search_unfinished_btn">
               <property name="text">
-               <string/>
+               <string>搜索</string>
               </property>
              </widget>
             </item>
@@ -421,8 +527,8 @@ QLineEdit:focus {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>699</width>
-               <height>295</height>
+               <width>743</width>
+               <height>265</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_6">
@@ -443,14 +549,18 @@ QLineEdit:focus {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
-             <widget class="QLabel" name="label_9">
-              <property name="text">
-               <string>查询</string>
+             <widget class="QLineEdit" name="lineEdit_2">
+              <property name="placeholderText">
+               <string>输入关键词搜索已完成实验...</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_2"/>
+             <widget class="QPushButton" name="search_finished_btn">
+              <property name="text">
+               <string>搜索</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -464,8 +574,8 @@ QLineEdit:focus {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>699</width>
-               <height>294</height>
+               <width>743</width>
+               <height>265</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -496,16 +606,16 @@ QLineEdit:focus {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_13">
             <item>
-             <widget class="QLabel" name="label_13">
-              <property name="text">
-               <string>查询</string>
+             <widget class="QLineEdit" name="lineEdit_5">
+              <property name="placeholderText">
+               <string>输入关键词搜索实验室实验...</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_5">
+             <widget class="QPushButton" name="search_all_exp_btn">
               <property name="text">
-               <string/>
+               <string>搜索</string>
               </property>
              </widget>
             </item>
@@ -521,8 +631,8 @@ QLineEdit:focus {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>699</width>
-               <height>629</height>
+               <width>743</width>
+               <height>588</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
@@ -536,7 +646,7 @@ QLineEdit:focus {
           <item>
            <widget class="QPushButton" name="pushButton_14">
             <property name="text">
-             <string>添加书籍</string>
+             <string>添加实验</string>
             </property>
            </widget>
           </item>
@@ -560,16 +670,16 @@ QLineEdit:focus {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_15">
             <item>
-             <widget class="QLabel" name="label_15">
-              <property name="text">
-               <string>查询</string>
+             <widget class="QLineEdit" name="lineEdit_7">
+              <property name="placeholderText">
+               <string>输入关键词搜索用户...</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_7">
+             <widget class="QPushButton" name="search_users_btn">
               <property name="text">
-               <string/>
+               <string>搜索</string>
               </property>
              </widget>
             </item>
@@ -585,8 +695,8 @@ QLineEdit:focus {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>699</width>
-               <height>629</height>
+               <width>743</width>
+               <height>588</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_13">

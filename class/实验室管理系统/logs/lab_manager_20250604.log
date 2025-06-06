@@ -1,0 +1,1017 @@
+2025-06-04 15:31:43 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 15:31:47 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 15:31:47 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 15:31:47 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 15:31:55 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:31:55 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:31:55 [[33mWARNING[0m] [33m密码长度不能小于6个字符[0m
+2025-06-04 15:32:00 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:00 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:00 [[33mWARNING[0m] [33m用户名只能包含英文字母和数字[0m
+2025-06-04 15:32:04 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:04 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:04 [[33mWARNING[0m] [33m用户名只能包含英文字母和数字[0m
+2025-06-04 15:32:08 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:08 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:08 [[33mWARNING[0m] [33m密码长度不能小于6个字符[0m
+2025-06-04 15:32:08 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:08 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:08 [[33mWARNING[0m] [33m密码长度不能小于6个字符[0m
+2025-06-04 15:32:11 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:11 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:11 [[33mWARNING[0m] [33m密码只能包含英文字母和数字[0m
+2025-06-04 15:32:12 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:12 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:12 [[33mWARNING[0m] [33m密码只能包含英文字母和数字[0m
+2025-06-04 15:32:20 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 15:32:20 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 15:32:23 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 15:32:23 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 15:32:23 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 15:32:27 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 15:32:27 [[31mERROR[0m] [31m登录过程发生错误: [Errno 2] No such file or directory: 'database/migrations/init_db.sql'[0m
+2025-06-04 15:32:27 [[31mERROR[0m] [31m登录异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 73, in login
+    user = User()
+  File "f:\GitHub\python\class\实验室管理系统\database\models\user.py", line 33, in __init__
+    self.db = DatabaseUtils()
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 19, in __init__
+    self._init_db()
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 32, in _init_db
+    raise e
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 24, in _init_db
+    with open('database/migrations/init_db.sql', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'database/migrations/init_db.sql'
+2025-06-04 15:33:13 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 15:33:13 [[33mWARNING[0m] [33m用户名或密码为空[0m
+2025-06-04 15:33:13 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 15:33:13 [[33mWARNING[0m] [33m用户名或密码为空[0m
+2025-06-04 15:40:35 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 15:40:35 [[31mERROR[0m] [31m登录过程发生错误: [Errno 2] No such file or directory: 'database/migrations/init_db.sql'[0m
+2025-06-04 15:40:35 [[31mERROR[0m] [31m登录异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 73, in login
+    user = User()
+  File "f:\GitHub\python\class\实验室管理系统\database\models\user.py", line 33, in __init__
+    self.db = DatabaseUtils()
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 19, in __init__
+    # 初始化数据库
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 32, in _init_db
+    print(f"初始化数据库失败: {e}")
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 24, in _init_db
+    try:
+FileNotFoundError: [Errno 2] No such file or directory: 'database/migrations/init_db.sql'
+2025-06-04 15:40:38 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 15:40:49 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 15:40:54 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 15:40:54 [[33mWARNING[0m] [33m用户 1234 登录失败[0m
+2025-06-04 17:20:47 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:22:31 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:24:16 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:25:49 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:25:49 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:25:52 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 17:25:52 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 17:25:52 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 17:25:54 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:25:54 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:25:54 [[33mWARNING[0m] [33m用户名不能为空[0m
+2025-06-04 17:26:04 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:26:04 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:26:04 [[33mWARNING[0m] [33m密码长度不能小于6个字符[0m
+2025-06-04 17:26:08 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:26:08 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:26:08 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 17:26:08 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?)[0m
+2025-06-04 17:26:08 [[31mERROR[0m] [31m执行SQL语句失败: NOT NULL constraint failed: users.password[0m
+2025-06-04 17:26:08 [[31mERROR[0m] [31m执行SQL语句失败: NOT NULL constraint failed: users.password[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 171, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: NOT NULL constraint failed: users.password
+2025-06-04 17:26:08 [[31mERROR[0m] [31m提交数据库信息失败: NOT NULL constraint failed: users.password[0m
+2025-06-04 17:26:08 [[31mERROR[0m] [31m详细错误信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\register_window.py", line 85, in do_register
+    db.insert("users", user.get_info())
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 178, in insert
+    raise e
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 171, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: NOT NULL constraint failed: users.password
+2025-06-04 17:32:40 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:32:40 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:32:42 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 17:32:42 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 17:32:42 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 17:32:48 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:32:48 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:32:48 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 17:32:48 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?)[0m
+2025-06-04 17:32:48 [[32mINFO[0m] [32m列表[None, '123456', 'student', None, datetime.datetime(2025, 6, 4, 17, 32, 48, 690281), None][0m
+2025-06-04 17:32:48 [[31mERROR[0m] [31m执行SQL语句失败: NOT NULL constraint failed: users.password[0m
+2025-06-04 17:32:48 [[31mERROR[0m] [31m执行SQL语句失败: NOT NULL constraint failed: users.password[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: NOT NULL constraint failed: users.password
+2025-06-04 17:32:48 [[31mERROR[0m] [31m提交数据库信息失败: NOT NULL constraint failed: users.password[0m
+2025-06-04 17:32:48 [[31mERROR[0m] [31m详细错误信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\register_window.py", line 85, in do_register
+    db.insert("users", user.get_info())
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 179, in insert
+    raise e
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: NOT NULL constraint failed: users.password
+2025-06-04 17:32:53 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 17:32:53 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:32:53 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 17:32:55 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 17:44:08 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:44:08 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:44:11 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 17:44:11 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 17:44:11 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 17:44:17 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:44:17 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:44:17 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 17:44:17 [[32mINFO[0m] [32m对密码进行哈希加密[0m
+2025-06-04 17:44:17 [[34mDEBUG[0m] [34m密码加密成功: 123456 -> 29c42e603759bc4c554bd6cdcd3f8ee264b9924f91520eea4cdfffa1420c9942[0m
+2025-06-04 17:44:17 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?,?)[0m
+2025-06-04 17:44:17 [[32mINFO[0m] [32m列表[None, '123456', ('29c42e603759bc4c554bd6cdcd3f8ee264b9924f91520eea4cdfffa1420c9942', 'Mc/dIWa9CLIgMfdq5FoCAw=='), 'student', None, datetime.datetime(2025, 6, 4, 17, 44, 17, 811608), None][0m
+2025-06-04 17:44:17 [[31mERROR[0m] [31m执行SQL语句失败: Error binding parameter 2 - probably unsupported type.[0m
+2025-06-04 17:44:17 [[31mERROR[0m] [31m执行SQL语句失败: Error binding parameter 2 - probably unsupported type.[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.InterfaceError: Error binding parameter 2 - probably unsupported type.
+2025-06-04 17:44:17 [[31mERROR[0m] [31m提交数据库信息失败: Error binding parameter 2 - probably unsupported type.[0m
+2025-06-04 17:44:17 [[31mERROR[0m] [31m详细错误信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\register_window.py", line 84, in do_register
+    db.insert("users", user.get_info())
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 179, in insert
+    raise e
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.InterfaceError: Error binding parameter 2 - probably unsupported type.
+2025-06-04 17:44:21 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 17:44:21 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:44:21 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 17:44:22 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 17:46:21 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 17:46:21 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:46:23 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 17:46:23 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 17:46:23 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 17:46:29 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 17:46:29 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 17:46:29 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 17:46:29 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?,?)[0m
+2025-06-04 17:46:29 [[32mINFO[0m] [32m列表[None, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, datetime.datetime(2025, 6, 4, 17, 46, 29, 657711), None][0m
+2025-06-04 17:46:29 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?,?)[0m
+2025-06-04 17:46:31 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 17:46:31 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 17:46:31 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 17:46:37 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 17:46:37 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 17:46:37 [[31mERROR[0m] [31m登录过程发生错误: strptime() argument 1 must be str, not None[0m
+2025-06-04 17:46:37 [[31mERROR[0m] [31m登录异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 76, in login
+    if user.login(username, password):
+  File "f:\GitHub\python\class\实验室管理系统\database\models\user.py", line 94, in login
+    self.create_time = datetime.strptime(user[6], '%Y-%m-%d %H:%M:%S')
+TypeError: strptime() argument 1 must be str, not None
+2025-06-04 18:00:52 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 18:00:52 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 18:00:52 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 18:01:01 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 18:01:01 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 18:01:01 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:01:01 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,teacher_id) VALUES (?,?,?,?,?,?,?)[0m
+2025-06-04 18:01:01 [[32mINFO[0m] [32m列表[None, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, datetime.datetime(2025, 6, 4, 18, 1, 1, 660184), None][0m
+2025-06-04 18:01:01 [[31mERROR[0m] [31m执行SQL语句失败: UNIQUE constraint failed: users.username[0m
+2025-06-04 18:01:01 [[31mERROR[0m] [31m执行SQL语句失败: UNIQUE constraint failed: users.username[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+2025-06-04 18:01:01 [[31mERROR[0m] [31m提交数据库信息失败: UNIQUE constraint failed: users.username[0m
+2025-06-04 18:01:01 [[31mERROR[0m] [31m详细错误信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\register_window.py", line 84, in do_register
+    db.insert("users", user.get_info())
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 179, in insert
+    raise e
+  File "f:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+2025-06-04 18:01:05 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 18:01:05 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 18:01:05 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 18:01:12 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:01:12 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:01:12 [[31mERROR[0m] [31m登录过程发生错误: strptime() argument 1 must be str, not None[0m
+2025-06-04 18:01:12 [[31mERROR[0m] [31m登录异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 76, in login
+    if user.login(username, password):
+  File "f:\GitHub\python\class\实验室管理系统\database\models\user.py", line 94, in login
+    self.create_time = datetime.strptime(user[6], '%Y-%m-%d %H:%M:%S')
+TypeError: strptime() argument 1 must be str, not None
+2025-06-04 18:04:14 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 18:04:14 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 18:04:21 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:04:21 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:04:21 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 17:46:29.657711')[0m
+2025-06-04 18:04:21 [[31mERROR[0m] [31m登录过程发生错误: strptime() argument 1 must be str, not None[0m
+2025-06-04 18:04:21 [[31mERROR[0m] [31m登录异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 76, in login
+    if user.login(username, password):
+  File "f:\GitHub\python\class\实验室管理系统\database\models\user.py", line 96, in login
+    self.create_time = datetime.strptime(user[6], '%Y-%m-%d %H:%M:%S')
+TypeError: strptime() argument 1 must be str, not None
+2025-06-04 18:06:50 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 18:06:57 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 18:06:58 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 18:07:04 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:07:04 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:07:04 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 17:46:29.657711')[0m
+2025-06-04 18:07:04 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .657711[0m
+2025-06-04 18:16:54 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 18:16:54 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 18:17:02 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:17:02 [[33mWARNING[0m] [33m密码格式错误: 密码长度不能小于6个字符[0m
+2025-06-04 18:17:06 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:17:06 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:17:06 [[33mWARNING[0m] [33m用户 123456 登录失败[0m
+2025-06-04 18:17:11 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 18:17:11 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 18:17:11 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 17:46:29.657711')[0m
+2025-06-04 18:17:11 [[32mINFO[0m] [32m用户 123456 登录成功[0m
+2025-06-04 18:17:11 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 18:17:18 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 19:56:38 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 19:57:06 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 19:57:50 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:33:10 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:33:10 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:33:21 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:33:21 [[33mWARNING[0m] [33m密码格式错误: 密码长度不能小于6个字符[0m
+2025-06-04 20:35:37 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:35:59 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:38:32 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:39:16 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:39:44 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:42:18 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:42:49 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:43:00 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:43:00 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:43:08 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:43:08 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:43:08 [[33mWARNING[0m] [33m用户 admin 登录失败[0m
+2025-06-04 20:45:22 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 20:45:25 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:45:25 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:45:30 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 20:45:32 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:48:09 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:50:51 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:51:06 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:51:11 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:51:11 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:51:24 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:51:24 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:51:24 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 20:51:24 [[33mWARNING[0m] [33m登录验证错误: time data '2025-06-04 12:50:51' does not match format '%Y-%m-%d %H:%M:%S.%f'[0m
+2025-06-04 20:56:52 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:56:52 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:56:52 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 20:56:52 [[33mWARNING[0m] [33m登录验证错误: time data '2025-06-04 12:50:51' does not match format '%Y-%m-%d %H:%M:%S.%f'[0m
+2025-06-04 20:56:54 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 20:57:00 [[32mINFO[0m] [32m初始化数据库: f:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:57:00 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:57:11 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:57:11 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:57:11 [[33mWARNING[0m] [33m用户 admin 登录失败[0m
+2025-06-04 20:57:22 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:57:22 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:57:22 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 20:57:22 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 20:57:22 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 20:57:22 [[31mERROR[0m] [31m打开主界面失败: __init__() missing 1 required positional argument: 'user_info'[0m
+2025-06-04 20:57:22 [[31mERROR[0m] [31m打开主界面异常详细信息[0m
+Traceback (most recent call last):
+  File "f:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 97, in login_success
+    self.main_window = MainWindow()
+TypeError: __init__() missing 1 required positional argument: 'user_info'
+2025-06-04 20:58:19 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 20:59:28 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 20:59:28 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 20:59:39 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 20:59:39 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 20:59:39 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 20:59:39 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 20:59:39 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 20:59:39 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 20:59:39 [[31mERROR[0m] [31m打开主界面失败: get_ui_path() missing 1 required positional argument: 'ui_file'[0m
+2025-06-04 20:59:39 [[31mERROR[0m] [31m打开主界面异常详细信息[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 97, in login_success
+    self.main_window = MainWindow(self.current_user.get_info())
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 29, in __init__
+    ui_path = os.path.join(get_ui_path(), 'menu/main_window.ui')
+TypeError: get_ui_path() missing 1 required positional argument: 'ui_file'
+2025-06-04 21:01:35 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:01:42 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:01:42 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:01:51 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:01:51 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:01:51 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:01:51 [[31mERROR[0m] [31m加载用户信息失败: Cannot operate on a closed database.[0m
+2025-06-04 21:01:51 [[31mERROR[0m] [31m加载用户信息失败: Cannot operate on a closed database.[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 104, in load_user_info
+    user = db.query_one("SELECT * FROM users WHERE id = ?", (self.user_info['id'],))
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 137, in query_one
+    return cursor.fetchone()
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+2025-06-04 21:01:56 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:01:56 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 21:02:28 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:02:31 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:02:35 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:02:55 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:14:26 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:14:26 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:14:36 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:14:36 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:14:36 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:14:36 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:14:36 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:14:36 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:14:36 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:14:36 [[31mERROR[0m] [31m打开主界面失败: 'dict' object is not callable[0m
+2025-06-04 21:14:36 [[31mERROR[0m] [31m打开主界面异常详细信息[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 98, in login_success
+    self.main_window = MainWindow(self.current_user.get_info(), self)
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 41, in __init__
+    self.init_ui()
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 55, in init_ui
+    self.label.setText(f"{self.user_info('role')} {self.user_info['username']}")
+TypeError: 'dict' object is not callable
+2025-06-04 21:14:39 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:14:39 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:14:39 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:14:39 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:14:39 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:14:39 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:14:39 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:14:39 [[31mERROR[0m] [31m打开主界面失败: 'dict' object is not callable[0m
+2025-06-04 21:14:39 [[31mERROR[0m] [31m打开主界面异常详细信息[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 98, in login_success
+    self.main_window = MainWindow(self.current_user.get_info(), self)
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 41, in __init__
+    self.init_ui()
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 55, in init_ui
+    self.label.setText(f"{self.user_info('role')} {self.user_info['username']}")
+TypeError: 'dict' object is not callable
+2025-06-04 21:15:36 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:15:36 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:15:36 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:15:36 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:15:36 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:15:36 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:15:36 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:15:36 [[31mERROR[0m] [31m打开主界面失败: 'dict' object is not callable[0m
+2025-06-04 21:15:36 [[31mERROR[0m] [31m打开主界面异常详细信息[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\login\login_window.py", line 98, in login_success
+    self.main_window = MainWindow(self.current_user.get_info(), self)
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 41, in __init__
+    self.init_ui()
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 55, in init_ui
+    self.label.setText(f"{self.user_info('role')} {self.user_info['username']}")
+TypeError: 'dict' object is not callable
+2025-06-04 21:15:43 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:18:30 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:18:30 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:18:39 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:18:39 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:18:39 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:18:40 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:18:40 [[31mERROR[0m] [31m加载用户信息失败: 1[0m
+2025-06-04 21:18:40 [[31mERROR[0m] [31m加载用户信息失败: 1[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 115, in load_user_info
+    self.textEdit_7.setText(user[1])  # 账号
+KeyError: 1
+2025-06-04 21:18:42 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:18:42 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 21:20:14 [[32mINFO[0m] [32m用户请求退出登录[0m
+2025-06-04 21:20:16 [[32mINFO[0m] [32m用户确认退出登录[0m
+2025-06-04 21:20:16 [[34mDEBUG[0m] [34m退出登录完成[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:20:26 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:20:26 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:20:26 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:20:26 [[31mERROR[0m] [31m加载用户信息失败: 1[0m
+2025-06-04 21:20:26 [[31mERROR[0m] [31m加载用户信息失败: 1[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 115, in load_user_info
+    self.textEdit_7.setText(user['username'])  # 账号
+KeyError: 1
+2025-06-04 21:20:27 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:20:27 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 21:23:48 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:23:48 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:23:58 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:23:58 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 12, 50, 51), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:23:58 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 21:24:08 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:24:10 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:24:28 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 21:24:33 [[32mINFO[0m] [32m用户请求退出登录[0m
+2025-06-04 21:24:35 [[32mINFO[0m] [32m用户确认退出登录[0m
+2025-06-04 21:24:35 [[34mDEBUG[0m] [34m退出登录完成[0m
+2025-06-04 21:24:36 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:24:36 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:24:36 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:24:43 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:24:43 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:24:43 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:24:43 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:24:43 [[32mINFO[0m] [32m列表[None, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, datetime.datetime(2025, 6, 4, 21, 24, 43, 816797), None, None][0m
+2025-06-04 21:24:43 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:24:45 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:24:45 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:24:45 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:24:54 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:24:54 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:24:54 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:24:43.816797')[0m
+2025-06-04 21:24:54 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .816797[0m
+2025-06-04 21:25:01 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:25:01 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:25:01 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:24:43.816797')[0m
+2025-06-04 21:25:01 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .816797[0m
+2025-06-04 21:25:12 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:25:12 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:25:12 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:25:20 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:25:20 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:25:20 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:25:20 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:25:20 [[32mINFO[0m] [32m列表[None, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, datetime.datetime(2025, 6, 4, 21, 25, 20, 566760), None, None][0m
+2025-06-04 21:25:20 [[31mERROR[0m] [31m执行SQL语句失败: UNIQUE constraint failed: users.username[0m
+2025-06-04 21:25:20 [[31mERROR[0m] [31m执行SQL语句失败: UNIQUE constraint failed: users.username[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+2025-06-04 21:25:20 [[31mERROR[0m] [31m提交数据库信息失败: UNIQUE constraint failed: users.username[0m
+2025-06-04 21:25:20 [[31mERROR[0m] [31m详细错误信息[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\login\register_window.py", line 84, in do_register
+    db.insert("users", user.get_info())
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 179, in insert
+    raise e
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 172, in insert
+    cursor.execute(sql, list(data.values()))
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+2025-06-04 21:28:10 [[32mINFO[0m] [32m退出系统[0m
+2025-06-04 21:28:14 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:28:14 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:28:23 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:28:23 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:28:23 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:28:27 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:28:27 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:28:27 [[33mWARNING[0m] [33m用户尝试注册{username}用户已存在[0m
+2025-06-04 21:28:33 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:28:33 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:28:33 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:28:33 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:28:33 [[32mINFO[0m] [32m列表[None, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, datetime.datetime(2025, 6, 4, 21, 28, 33, 266917), None, None][0m
+2025-06-04 21:28:33 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:28:35 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:28:35 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:28:35 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:28:40 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:28:40 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:28:40 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:28:33.266917')[0m
+2025-06-04 21:28:40 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .266917[0m
+2025-06-04 21:36:51 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:36:51 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:36:51 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:28:33.266917')[0m
+2025-06-04 21:36:51 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .266917[0m
+2025-06-04 21:49:19 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:49:21 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:49:21 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:49:28 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:49:28 [[34mDEBUG[0m] [34m2025-06-04 21:49:28[0m
+2025-06-04 21:49:28 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:49:28 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:24:43.816797')[0m
+2025-06-04 21:49:28 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .816797[0m
+2025-06-04 21:49:31 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:49:31 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:49:31 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:49:35 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:49:35 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:49:35 [[33mWARNING[0m] [33m用户尝试注册{username}用户已存在[0m
+2025-06-04 21:49:57 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:49:57 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:49:57 [[34mDEBUG[0m] [34m2025-06-04 21:49:57[0m
+2025-06-04 21:49:57 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:49:57 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:49:57 [[32mINFO[0m] [32m列表[None, '12345678', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', 'student', None, datetime.datetime(2025, 6, 4, 21, 49, 57, 116280), None, None][0m
+2025-06-04 21:49:57 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:50:02 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:50:02 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:50:02 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:50:31 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:51:14 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:51:14 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:51:26 [[34mDEBUG[0m] [34m2025-06-04 21:51:26[0m
+2025-06-04 21:51:26 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:51:26 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 12:50:51')[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 12, 50, 51), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:51:26 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 21:51:35 [[32mINFO[0m] [32m用户请求退出登录[0m
+2025-06-04 21:51:36 [[32mINFO[0m] [32m用户确认退出登录[0m
+2025-06-04 21:51:36 [[34mDEBUG[0m] [34m退出登录完成[0m
+2025-06-04 21:51:41 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:51:41 [[34mDEBUG[0m] [34m2025-06-04 21:51:41[0m
+2025-06-04 21:51:41 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:51:41 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:24:43.816797')[0m
+2025-06-04 21:51:41 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .816797[0m
+2025-06-04 21:53:53 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:53:53 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:53:53 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:54:02 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:54:02 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:54:02 [[34mDEBUG[0m] [34m2025-06-04 21:54:02[0m
+2025-06-04 21:54:02 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:02 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:54:02 [[32mINFO[0m] [32m列表[None, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, datetime.datetime(2025, 6, 4, 21, 54, 2, 203199), None, None][0m
+2025-06-04 21:54:02 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:54:03 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:54:03 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:54:03 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:54:09 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:09 [[34mDEBUG[0m] [34m2025-06-04 21:54:09[0m
+2025-06-04 21:54:09 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:09 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:09 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:17 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m2025-06-04 21:54:17[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:17 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:17 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m2025-06-04 21:54:17[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:17 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:17 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:18 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m2025-06-04 21:54:18[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:18 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:18 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m2025-06-04 21:54:18[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:18 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:18 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m2025-06-04 21:54:18[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:18 [[34mDEBUG[0m] [34m用户信息: (5, '123456789', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'student', None, None, None, '2025-06-04 21:54:02.203199')[0m
+2025-06-04 21:54:18 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .203199[0m
+2025-06-04 21:54:20 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m2025-06-04 21:54:20[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:20 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:20 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m2025-06-04 21:54:20[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:20 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:20 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m2025-06-04 21:54:20[0m
+2025-06-04 21:54:20 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:20 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:21 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:21 [[34mDEBUG[0m] [34m2025-06-04 21:54:21[0m
+2025-06-04 21:54:21 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:21 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:22 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:22 [[34mDEBUG[0m] [34m2025-06-04 21:54:22[0m
+2025-06-04 21:54:22 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:22 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:22 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:22 [[34mDEBUG[0m] [34m2025-06-04 21:54:22[0m
+2025-06-04 21:54:22 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:22 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:23 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m2025-06-04 21:54:23[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:23 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:23 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m2025-06-04 21:54:23[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:23 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:23 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m2025-06-04 21:54:23[0m
+2025-06-04 21:54:23 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:23 [[33mWARNING[0m] [33m用户 123456789 登录失败[0m
+2025-06-04 21:54:33 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:54:47 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:54:47 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:54:50 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:54:50 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:54:50 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:54:55 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:54:55 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:54:55 [[34mDEBUG[0m] [34m2025-06-04 21:54:55[0m
+2025-06-04 21:54:55 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:54:55 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:54:55 [[32mINFO[0m] [32m列表[None, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, datetime.datetime(2025, 6, 4, 21, 54, 55, 567474), None, None][0m
+2025-06-04 21:54:55 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:54:56 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:54:56 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:54:56 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:55:02 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:55:02 [[34mDEBUG[0m] [34m2025-06-04 21:55:02[0m
+2025-06-04 21:55:02 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:55:02 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:54:55.567474')[0m
+2025-06-04 21:55:02 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .567474[0m
+2025-06-04 21:56:06 [[32mINFO[0m] [32m用户退出系统[0m
+2025-06-04 21:56:10 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:56:10 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:56:13 [[32mINFO[0m] [32m用户点击注册按钮，准备打开注册界面[0m
+2025-06-04 21:56:13 [[34mDEBUG[0m] [34m注册窗口初始化完成[0m
+2025-06-04 21:56:13 [[34mDEBUG[0m] [34m注册界面已打开[0m
+2025-06-04 21:56:21 [[32mINFO[0m] [32m执行注册[0m
+2025-06-04 21:56:21 [[32mINFO[0m] [32m验证注册账号输入[0m
+2025-06-04 21:56:21 [[34mDEBUG[0m] [34m2025-06-04 21:56:21[0m
+2025-06-04 21:56:21 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:56:21 [[32mINFO[0m] [32m执行SQL语句: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:56:21 [[32mINFO[0m] [32m列表[None, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, '2025-06-04 21:56:21', None, None][0m
+2025-06-04 21:56:21 [[34mDEBUG[0m] [34m执行SQL语句成功: INSERT INTO users (id,username,password,role,real_name,create_time,student_id,teacher_id) VALUES (?,?,?,?,?,?,?,?)[0m
+2025-06-04 21:56:23 [[32mINFO[0m] [32m返回登录界面[0m
+2025-06-04 21:56:23 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:56:23 [[34mDEBUG[0m] [34m返回登录界面完成[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:56:31 [[34mDEBUG[0m] [34m2025-06-04 21:56:31[0m
+2025-06-04 21:56:31 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:56:31 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:56:21')[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m用户 1234567 登录成功[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m用户信息：{'id': 3, 'username': '1234567', 'password': '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'role': 'student', 'real_name': None, 'create_time': datetime.datetime(2025, 6, 4, 21, 56, 21), 'student_id': None, 'teacher_id': None}[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:56:31 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: student[0m
+2025-06-04 21:56:43 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 21:56:43 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 21:56:50 [[34mDEBUG[0m] [34m2025-06-04 21:56:50[0m
+2025-06-04 21:56:50 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 21:56:50 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:56:21')[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m用户 1234567 登录成功[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m用户信息：{'id': 3, 'username': '1234567', 'password': '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'role': 'student', 'real_name': None, 'create_time': datetime.datetime(2025, 6, 4, 21, 56, 21), 'student_id': None, 'teacher_id': None}[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 21:56:50 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: student[0m
+2025-06-04 21:56:53 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:00:24 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:00:24 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:00:32 [[34mDEBUG[0m] [34m2025-06-04 22:00:32[0m
+2025-06-04 22:00:32 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:00:32 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:00:32 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:00:39 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:00:41 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:00:47 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:00:51 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:00:51 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:00:58 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:00:58 [[34mDEBUG[0m] [34m2025-06-04 22:00:58[0m
+2025-06-04 22:00:58 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:00:58 [[34mDEBUG[0m] [34m用户信息: (2, '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'student', None, None, None, '2025-06-04 21:54:55.567474')[0m
+2025-06-04 22:00:58 [[33mWARNING[0m] [33m登录验证错误: unconverted data remains: .567474[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:01:01 [[34mDEBUG[0m] [34m2025-06-04 22:01:01[0m
+2025-06-04 22:01:01 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:01:01 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:56:21')[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m用户 1234567 登录成功[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m用户信息：{'id': 3, 'username': '1234567', 'password': '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'role': 'student', 'real_name': None, 'create_time': datetime.datetime(2025, 6, 4, 21, 56, 21), 'student_id': None, 'teacher_id': None}[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:01:01 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: student[0m
+2025-06-04 22:01:04 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:01:33 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:02:44 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:02:44 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:02:51 [[34mDEBUG[0m] [34m2025-06-04 22:02:51[0m
+2025-06-04 22:02:51 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:02:51 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:02:51 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:02:56 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:02:56 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:03:03 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:03:03 [[33mWARNING[0m] [33m密码格式错误: 密码长度不能小于6个字符[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:03:05 [[34mDEBUG[0m] [34m2025-06-04 22:03:05[0m
+2025-06-04 22:03:05 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:03:05 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:03:05 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:03:07 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:03:16 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:03:17 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:04:57 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:04:57 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:05:03 [[34mDEBUG[0m] [34m2025-06-04 22:05:03[0m
+2025-06-04 22:05:03 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:05:03 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:05:03 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:05:06 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:05:08 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:05:48 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:05:48 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:05:54 [[34mDEBUG[0m] [34m2025-06-04 22:05:54[0m
+2025-06-04 22:05:54 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:05:54 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:05:54 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:05:56 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:05:56 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 186, in load_all_experiments
+    experiments = db.query_all("SELECT * FROM experiments")
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 151, in query_all
+    return cursor.fetchall()
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+2025-06-04 22:07:38 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:07:40 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:07:40 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 186, in load_all_experiments
+    (self.user_info['id'],)
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 151, in query_all
+    return cursor.fetchall()
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+2025-06-04 22:07:42 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:08:31 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:08:32 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:08:32 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 186, in load_all_experiments
+    (self.user_info['id'],)
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 151, in query_all
+    return cursor.fetchall()
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+2025-06-04 22:08:33 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:08:35 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:08:35 [[31mERROR[0m] [31m加载实验列表失败: Cannot operate on a closed database.[0m
+Traceback (most recent call last):
+  File "F:\GitHub\python\class\实验室管理系统\ui\menu\main_window.py", line 186, in load_all_experiments
+    (self.user_info['id'],)
+  File "F:\GitHub\python\class\实验室管理系统\utils\db_utils.py", line 151, in query_all
+    return cursor.fetchall()
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+2025-06-04 22:12:31 [[31mERROR[0m] [31m加载用户列表失败: Cannot operate on a closed database.[0m
+2025-06-04 22:17:08 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 22:17:08 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 22:17:08 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 22:17:08 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 22:17:13 [[34mDEBUG[0m] [34m2025-06-04 22:17:13[0m
+2025-06-04 22:17:13 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 22:17:13 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 22:17:13 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 22:17:13 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 22:17:13 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 22:17:15 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 22:17:15 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 22:17:16 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 22:17:16 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:02 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 23:16:02 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:02 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:02 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 23:16:10 [[34mDEBUG[0m] [34m2025-06-04 23:16:10[0m
+2025-06-04 23:16:10 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 23:16:10 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:10 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:10 [[34mDEBUG[0m] [34m用户信息: (1, 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'admin', '系统管理员', None, 1, '2025-06-04 13:54:47')[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m用户 admin 登录成功[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m准备打开admin角色的主界面[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m用户信息：{'id': 1, 'username': 'admin', 'password': '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'role': 'admin', 'real_name': '系统管理员', 'create_time': datetime.datetime(2025, 6, 4, 13, 54, 47), 'student_id': None, 'teacher_id': 1}[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 23:16:10 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: admin[0m
+2025-06-04 23:16:13 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:13 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:14 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:14 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:14 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:14 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:15 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:15 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:19 [[32mINFO[0m] [32m搜索用户，关键词：123[0m
+2025-06-04 23:16:19 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:19 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:21 [[32mINFO[0m] [32m搜索用户，关键词：12345[0m
+2025-06-04 23:16:21 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:21 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:22 [[32mINFO[0m] [32m搜索用户，关键词：123456[0m
+2025-06-04 23:16:22 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:22 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:23 [[32mINFO[0m] [32m搜索用户，关键词：1234567[0m
+2025-06-04 23:16:23 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:23 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:43 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:43 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:43 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:43 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:44 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:44 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:44 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:44 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:45 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:45 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:47 [[32mINFO[0m] [32m搜索用户，关键词：1234567[0m
+2025-06-04 23:16:47 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:47 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:48 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:48 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:48 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:48 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:50 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:50 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:50 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:50 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:51 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:51 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:16:59 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:16:59 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:00 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:00 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:02 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:02 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:03 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:03 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:25 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:25 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:26 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:26 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:26 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:26 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:34 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 23:17:34 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:34 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:34 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 23:17:41 [[34mDEBUG[0m] [34m2025-06-04 23:17:41[0m
+2025-06-04 23:17:41 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 23:17:41 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:41 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:41 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:56:21')[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m用户 1234567 登录成功[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m用户信息：{'id': 3, 'username': '1234567', 'password': '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'role': 'student', 'real_name': None, 'create_time': datetime.datetime(2025, 6, 4, 21, 56, 21), 'student_id': None, 'teacher_id': None}[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 23:17:41 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: student[0m
+2025-06-04 23:17:44 [[32mINFO[0m] [32m初始化数据库: F:\GitHub\python\class\实验室管理系统\database\database.db[0m
+2025-06-04 23:17:44 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:44 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:44 [[34mDEBUG[0m] [34m登录窗口初始化完成[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m用户尝试登录[0m
+2025-06-04 23:17:50 [[34mDEBUG[0m] [34m2025-06-04 23:17:50[0m
+2025-06-04 23:17:50 [[34mDEBUG[0m] [34m用户对象初始化:完成[0m
+2025-06-04 23:17:50 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:50 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:50 [[34mDEBUG[0m] [34m用户信息: (3, '1234567', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'student', None, None, None, '2025-06-04 21:56:21')[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m用户 1234567 登录成功[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m准备打开student角色的主界面[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m初始化主窗口[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m用户信息：{'id': 3, 'username': '1234567', 'password': '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', 'role': 'student', 'real_name': None, 'create_time': datetime.datetime(2025, 6, 4, 21, 56, 21), 'student_id': None, 'teacher_id': None}[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m初始化界面元素[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m设置信号和槽的连接[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m加载用户信息[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m设置界面权限[0m
+2025-06-04 23:17:50 [[32mINFO[0m] [32m主窗口初始化完成，用户角色: student[0m
+2025-06-04 23:17:53 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:53 [[34mDEBUG[0m] [34m数据库连接已关闭[0m
+2025-06-04 23:17:56 [[32mINFO[0m] [32m搜索已完成实验，关键词：123[0m
+2025-06-04 23:17:56 [[34mDEBUG[0m] [34m数据库连接已建立[0m
+2025-06-04 23:17:56 [[34mDEBUG[0m] [34m数据库连接已关闭[0m

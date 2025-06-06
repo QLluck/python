@@ -1,0 +1,80 @@
+laboratory_management/              # 项目根目录
+│
+├── main.py                         # 程序入口文件，包含应用程序的启动逻辑
+├── requirements.txt                # 项目依赖文件
+├── README.md                       # 项目说明文档
+│
+├── config/                         # 配置文件目录
+│   ├── __init__.py
+│   ├── settings.py                 # 全局配置文件（数据库配置、文件路径等）
+│   └── constants.py                # 常量定义（状态码、角色类型等）
+│
+├── database/                       # 数据库相关目录
+│   ├── __init__.py
+│   ├── db_manager.py              # 数据库连接管理类
+│   ├── models/                    # 数据模型目录
+│   │   ├── __init__.py
+│   │   ├── user.py               # 用户模型
+│   │   ├── course.py            # 课程模型
+│   │   ├── experiment.py        # 实验任务模型
+│   │   └── submission.py        # 作业提交模型
+│   │
+│   └── migrations/               # 数据库迁移脚本目录
+│       └── init_db.sql          # 初始化数据库脚本
+│
+├── ui/                            # 用户界面目录
+│   ├── __init__.py
+│   ├── resources/                # UI资源文件目录
+│   │   ├── icons/              # 图标文件
+│   │   ├── styles/             # QSS样式文件
+│   │   └── ui_files/           # Qt Designer UI文件(.ui)
+│   │
+│   ├── login/                   # 登录相关界面
+│   │   ├── __init__.py
+│   │   ├── login_window.py     # 登录窗口
+│   │   └── register_window.py  # 注册窗口
+│   │
+│   ├── admin/                   # 管理员界面
+│   │   ├── __init__.py
+│   │   ├── admin_main.py       # 管理员主界面
+│   │   ├── user_manage.py      # 用户管理界面
+│   │   └── system_settings.py  # 系统设置界面
+│   │
+│   ├── teacher/                 # 教师界面
+│   │   ├── __init__.py
+│   │   ├── teacher_main.py     # 教师主界面
+│   │   ├── course_manage.py    # 课程管理界面
+│   │   ├── experiment_edit.py  # 实验任务编辑界面
+│   │   └── grade_manage.py     # 成绩管理界面
+│   │
+│   └── student/                 # 学生界面
+│       ├── __init__.py
+│       ├── student_main.py     # 学生主界面
+│       ├── experiment_view.py  # 实验任务查看界面
+│       └── submit_work.py      # 作业提交界面
+│
+├── utils/                        # 工具类目录
+│   ├── __init__.py
+│   ├── file_handler.py          # 文件处理工具（Excel/CSV/TXT）
+│   ├── encryption.py            # 加密工具（密码加密等）
+│   ├── validators.py            # 数据验证工具
+│   └── logger.py                # 日志工具
+│
+├── services/                     # 业务逻辑层目录
+│   ├── __init__.py
+│   ├── auth_service.py          # 认证服务
+│   ├── user_service.py          # 用户管理服务
+│   ├── course_service.py        # 课程管理服务
+│   ├── experiment_service.py    # 实验任务服务
+│   └── grade_service.py         # 成绩管理服务
+│
+├── tests/                        # 测试目录
+│   ├── __init__.py
+│   ├── test_models/            # 模型测试
+│   ├── test_services/         # 服务测试
+│   └── test_utils/            # 工具类测试
+│
+└── docs/                         # 文档目录
+    ├── api/                     # API文档
+    ├── database/               # 数据库设计文档
+    └── user_guide/            # 用户使用手册 

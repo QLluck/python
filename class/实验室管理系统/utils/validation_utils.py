@@ -4,7 +4,7 @@ from typing import Tuple
 class ValidationUtils:
     # 只允许英文字母和数字的正则表达式模式
     USERNAME_PATTERN = r'^[a-zA-Z0-9]+$' #^是从头开始， $符号是表示到结尾
-    PASSWORD_PATTERN = r'^[a-zA-Z0-9]+$'
+    PASSWORD_PATTERN = r'^[a-zA-Z0-9]+$'#正则表达式,+号表示一个或多个
     
     @classmethod
     def validate_username(cls, username: str) -> Tuple[bool, str]:

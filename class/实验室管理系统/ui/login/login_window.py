@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
-from PyQt5 import uic
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox#这是pyqt5的各种组件
+from PyQt5 import uic#uic 加载Ui的工具
 import sys
 import os
 import utils.path_helper 
@@ -26,6 +26,7 @@ class LoginWindow(QWidget):
         self.pushButton_3.clicked.connect(self.exit_system)  # 退出按钮
         
         # 设置错误提示样式
+        #运用类css的语法
         self.textBrowser_2.setStyleSheet("""
             QTextBrowser {
                 color: red;
@@ -95,6 +96,7 @@ class LoginWindow(QWidget):
         try:
             from ui.menu.main_window import MainWindow
             # 传入登录窗口实例
+            #如果没有实例属性化， 在这个函数运行结束后，整个窗口就会消失
             self.main_window = MainWindow(self.current_user.get_info(), self)
             self.main_window.show()
             self.hide()

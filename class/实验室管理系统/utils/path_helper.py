@@ -14,12 +14,12 @@ def get_root_path():
     获取应用程序根目录
     在开发环境和打包环境下都能正确工作
     """
-    if getattr(sys, 'frozen', False):
+    if getattr(sys, 'frozen', False):#打包环境下 编译器冻结
         # 打包环境下的路径
-        return os.path.dirname(sys.executable)
+        return os.path.dirname(sys.executable)#sys.executable 是当前程序的绝对路径
     else:
         # 开发环境下的路径
-        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))#__file__ 是当前文件的绝对路径
 
 def get_resource_path(relative_path):
     """

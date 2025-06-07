@@ -43,6 +43,7 @@ class RegisterWindow(QWidget):
         info("验证注册账号输入")
         username = self.lineEdit_7.text().strip()
         password = self.lineEdit_5.text().strip()
+        
         result = vu.validate_username(username)
         # 检查是否为空
         if not result[0]:

@@ -1,4 +1,78 @@
-欢迎各位新生来到南阳理工ACM&&TC官方招新群
-ACM&&TC是计科ACM和TC的总称，我们工作室成立的目的是致力于培养优秀的程序员，提高算法与数据结构的能力，并参加国内各种竞赛。
-我们计科ACM集训队成立于2009年，在往届计科ACM和TC学长的努力之下我们集训队取得无数的荣誉河南省省赛金区域赛铜，CCPC区域赛杭州站银牌，且计科ACM16级的学长在ACM-ICPC亚洲区域赛中夺得银牌，21级学长在ACM-ICPC亚洲区域赛中夺得银牌目前仍是南阳理工在ICPC中获得的最好成绩也是唯二银牌。
-同时TC项目组不同于算法的竞赛路线，我们项目组通过的是学习且实践的方式来提升自己。何为项目呢？往届学长学姐都有拿到大厂offer的，通过做项目也能快速提升自己的编程能力和综合能力。
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # 使用Agg后端（无GUI）
+import matplotlib.pyplot as plt
+
+# 设置图片清晰度
+plt.rcParams['figure.dpi'] = 300
+
+# 生成输入数据
+z = np.linspace(-6, 6, 1000)
+
+# 定义激活函数
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+def relu(z):
+    return np.maximum(0, z)
+
+def tanh(z):
+    return (np.exp(z) - np.exp(-z)) / (np.exp(z) + np.exp(-z))
+
+# 计算输出
+y_sigmoid = sigmoid(z)
+y_relu = relu(z)
+y_tanh = tanh(z)
+
+# 创建图形和子图
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+
+# 绘制Sigmoid函数
+axes[0].plot(z, y_sigmoid, label='Sigmoid', color='#5DA5DA', linewidth=2)
+axes[0].axhline(y=0, color='k', linestyle='--', alpha=0.3)
+axes[0].axhline(y=1, color='k', linestyle='--', alpha=0.3)
+axes[0].axvline(x=0, color='k', linestyle='--', alpha=0.3)
+axes[0].set_title('Sigmoid Activation Function', fontsize=14)
+axes[0].set_xlabel('z', fontsize=12)
+axes[0].set_ylabel('f(z)', fontsize=12)
+axes[0].set_ylim(-0.1, 1.1)
+axes[0].text(-5, 0.8, r'$f(z) = \frac{1}{1+e^{-z}}$', fontsize=12)
+axes[0].text(-5, 0.6, 'Output Range: [0, 1]', fontsize=11)
+axes[0].text(-5, 0.4, 'Characteristics: Compresses to probability range, prone to vanishing gradients', fontsize=11)
+axes[0].legend()
+axes[0].grid(True, alpha=0.3)
+
+# 绘制ReLU函数
+axes[1].plot(z, y_relu, label='ReLU', color='#FAA43A', linewidth=2)
+axes[1].axhline(y=0, color='k', linestyle='--', alpha=0.3)
+axes[1].axvline(x=0, color='k', linestyle='--', alpha=0.3)
+axes[1].set_title('ReLU Activation Function', fontsize=14)
+axes[1].set_xlabel('z', fontsize=12)
+axes[1].set_ylabel('f(z)', fontsize=12)
+axes[1].set_ylim(-1, 6)
+axes[1].text(-5, 4, r'$f(z) = max(0, z)$', fontsize=12)
+axes[1].text(-5, 3, 'Output Range: [0, +∞)', fontsize=11)
+axes[1].text(-5, 2, 'Characteristics: Unilateral inhibition, mitigates vanishing gradients', fontsize=11)
+axes[1].legend()
+axes[1].grid(True, alpha=0.3)
+
+# 绘制Tanh函数
+axes[2].plot(z, y_tanh, label='Tanh', color='#60BD68', linewidth=2)
+axes[2].axhline(y=0, color='k', linestyle='--', alpha=0.3)
+axes[2].axhline(y=1, color='k', linestyle='--', alpha=0.3)
+axes[2].axhline(y=-1, color='k', linestyle='--', alpha=0.3)
+axes[2].axvline(x=0, color='k', linestyle='--', alpha=0.3)
+axes[2].set_title('Tanh Activation Function', fontsize=14)
+axes[2].set_xlabel('z', fontsize=12)
+axes[2].set_ylabel('f(z)', fontsize=12)
+axes[2].set_ylim(-1.1, 1.1)
+axes[2].text(-5, 0.8, r'$f(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$', fontsize=12)
+axes[2].text(-5, 0.6, 'Output Range: [-1, 1]', fontsize=11)
+axes[2].text(-5, 0.4, 'Characteristics: Zero-centered output, suitable for symmetric data', fontsize=11)
+axes[2].legend()
+axes[2].grid(True, alpha=0.3)
+
+# 调整布局
+plt.tight_layout()
+plt.savefig('activation_functions.png', bbox_inches='tight')
+# plt.show()  # 注释掉show()，避免GUI渲染

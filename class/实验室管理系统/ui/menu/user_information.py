@@ -155,10 +155,7 @@ class UserInformationWindow(QtWidgets.QWidget):
                 QMessageBox.warning(self, "错误", "请选择用户权限")
                 return
                 
-            # 如果是学生，必须输入学号
-            # if role == 'student' and not student_id:
-            #     QMessageBox.warning(self, "错误", "请输入学号")
-            #     return
+       
                 
             # 如果不是学生，清空学号
             if role != 'student':

@@ -1,0 +1,2 @@
+timestamp_ms,ok,elapsed_ms,stage,mode,segment_method,roi,scale,error
+1778919187311,True,381,full,dermoscopy,dual,"[27, 53, 548, 397]",1.0,

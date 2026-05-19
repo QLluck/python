@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"/Users/jack5/QLluckGithub/python/leetcode/1.py","tests":[{"id":1777016039272,"input":"3","output":"1-2 2-1 3-轮空\n1-3 2-轮空 3-1\n1-轮空 2-3 3-2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jack5/QLluckGithub/python/leetcode/1.py","group":"local","local":true}

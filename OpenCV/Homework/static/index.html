@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="医学图像病变区域自动检测与分割系统 - 基于 OpenCV 传统图像处理" />
+  <meta name="keywords" content="医学图像,病变检测,图像分割,OpenCV,FastAPI" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>医学图像病变检测与分割</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%233b82f6' d='M12 2L2 7l10 5 10-5-10-5z'/></svg>" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+        <div><h1>医学图像病变区域检测与分割</h1><p class="sub">OpenCV 传统流程 · FastAPI 后端 · 本地运行</p></div>
+      </div>
+    </div>
+  </header>
+  <main class="layout">
+    <section class="panel glass-card">
+      <h2 class="section-title">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>输入与运行
+      </h2>
+      <div class="upload-zone" id="uploadZone">
+        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <div class="upload-text">
+          <span class="upload-title">拖拽图像到此处或点击选择</span>
+          <span class="upload-hint">支持 PNG / JPG / BMP 格式</span>
+        </div>
+        <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.bmp" hidden />
+      </div>
+      <label class="file-label optional">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+        </svg>
+        <span>可选：金标准掩膜 (灰度 PNG)</span>
+        <input type="file" id="gtInput" accept=".png" />
+      </label>
+      
+      <!-- ML Mode Selector -->
+      <div class="mode-selector" id="modeSelector">
+        <div class="mode-tabs">
+          <button type="button" class="mode-tab active" data-mode="manual">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+            </svg>
+            <span>手动模式</span>
+          </button>
+          <button type="button" class="mode-tab" data-mode="smart">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+            <span>智能模式</span>
+          </button>
+          <button type="button" class="mode-tab" data-mode="click">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            <span>点击模式</span>
+          </button>
+        </div>
+        <div class="mode-description" id="modeDescription">
+          <p class="mode-desc-text">手动调整所有参数，适合高级用户和精细控制</p>
+        </div>
+      </div>
+      
+      <!-- Smart Mode UI -->
+      <div class="smart-mode-panel" id="smartModePanel" hidden>
+        <button type="button" id="predictBtn" class="btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          <span class="btn-text">预测最优参数</span>
+        </button>
+        <div id="predictionResult" class="prediction-result" hidden>
+          <div class="prediction-header">
+            <span class="prediction-title">AI 预测结果</span>
+            <div class="confidence-badge" id="confidenceBadge">
+              <span class="confidence-label">置信度:</span>
+              <span class="confidence-value" id="confidenceValue">--</span>
+            </div>
+          </div>
+          <div class="prediction-content">
+            <div class="prediction-item">
+              <span class="prediction-label">推荐方法:</span>
+              <span class="prediction-value" id="predictedMethod">--</span>
+            </div>
+            <div class="prediction-params" id="predictedParams"></div>
+          </div>
+          <p class="prediction-hint">您可以在下方手动调整预测的参数</p>
+        </div>
+      </div>
+      
+      <!-- Click Mode UI -->
+      <div class="click-mode-panel" id="clickModePanel" hidden>
+        <div class="click-instructions">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <p>上传图像后，在预览区域点击病灶位置进行分割</p>
+        </div>
+        <div class="click-controls">
+          <button type="button" id="clearClicksBtn" class="btn-secondary" disabled>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            <span>清除点击</span>
+          </button>
+          <span class="click-count">点击次数: <strong id="clickCount">0</strong></span>
+        </div>
+        <div id="clickResult" class="click-result" hidden></div>
+      </div>
+      
+      <div class="param-grid">
+        <label class="input-group"><span class="label-text">阶段 stage</span>
+          <select id="stage" class="select-input">
+            <option value="full">full（全流程）</option><option value="meta_only">meta_only</option>
+            <option value="preprocess_only">preprocess_only</option><option value="detect_only">detect_only</option>
+          </select>
+        </label>
+        <label class="input-group"><span class="label-text">模式 mode</span>
+          <select id="mode" class="select-input">
+            <option value="dermoscopy" selected>dermoscopy</option><option value="gray_medical">gray_medical</option>
+          </select>
+        </label>
+        <label class="input-group"><span class="label-text">max_side</span>
+          <input type="number" id="max_side" value="1280" min="64" max="4096" class="number-input" title="图像最大边长，范围 64-4096" />
+        </label>
+        <label class="input-group"><span class="label-text">median_ksize (奇数)</span>
+          <input type="number" id="median_ksize" value="5" step="2" min="1" max="31" class="number-input" title="中值滤波核大小，必须是奇数" />
+        </label>
+      </div>
+      <details class="accordion" id="advPreprocess">
+        <summary class="accordion-header">
+          <svg class="icon-sm chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>预处理与检测
+        </summary>
+        <div class="accordion-content"><div class="param-grid">
+          <label class="checkbox-label"><input type="checkbox" id="use_bilateral" checked class="checkbox-input" /><span class="checkbox-text">use_bilateral</span></label>
+          <label class="input-group"><span class="label-text">CLAHE clip</span><input type="number" id="clahe_clip" value="3.0" step="0.1" min="0.1" max="10" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">CLAHE tile</span><input type="number" id="clahe_tile" value="8" min="2" max="32" class="number-input" /></label>
+          <label class="checkbox-label"><input type="checkbox" id="use_tophat" checked class="checkbox-input" /><span class="checkbox-text">use_tophat</span></label>
+          <label class="input-group"><span class="label-text">tophat_kernel</span><input type="number" id="tophat_kernel" value="21" min="3" max="51" step="2" class="number-input" title="必须是奇数" /></label>
+          <label class="checkbox-label"><input type="checkbox" id="use_blackhat" class="checkbox-input" /><span class="checkbox-text">use_blackhat</span></label>
+          <label class="input-group"><span class="label-text">detect_threshold</span>
+            <select id="detect_threshold" class="select-input"><option value="adaptive" selected>adaptive</option><option value="otsu">otsu</option></select>
+          </label>
+          <label class="input-group"><span class="label-text">min_component_area</span><input type="number" id="min_component_area" value="30" min="1" max="10000" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">max_area_ratio</span><input type="number" id="max_component_area_ratio" value="0.95" step="0.01" min="0.1" max="1.0" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">roi_margin_ratio</span><input type="number" id="roi_margin_ratio" value="0.1" step="0.01" min="0" max="0.5" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">color_fusion</span>
+            <select id="color_fusion" class="select-input"><option value="or" selected>or</option><option value="and">and</option></select>
+          </label>
+        </div></div>
+      </details>
+      <details class="accordion" open id="advSegment">
+        <summary class="accordion-header">
+          <svg class="icon-sm chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>分割参数
+        </summary>
+        <div class="accordion-content"><div class="param-grid">
+          <label class="input-group"><span class="label-text">segment_method</span>
+            <select id="segment_method" class="select-input">
+              <option value="dual" selected>dual (自动选优)</option><option value="otsu_roi">otsu_roi</option><option value="region_grow">region_grow</option><option value="watershed">watershed</option>
+            </select>
+          </label>
+          <label class="input-group"><span class="label-text">threshold_in_segment</span>
+            <select id="threshold_in_segment" class="select-input"><option value="otsu">otsu</option><option value="triangle">triangle</option></select>
+          </label>
+          <label class="input-group"><span class="label-text">morph_kernel</span><input type="number" id="morph_kernel_segment" value="3" min="3" max="31" step="2" class="number-input" title="必须是奇数" /></label>
+          <label class="input-group"><span class="label-text">min_post_area</span><input type="number" id="min_post_area" value="50" min="1" max="1000" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">grow_T</span><input type="number" id="grow_T" value="20" min="1" max="255" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">grow_G</span><input type="number" id="grow_G" value="0" step="0.1" min="0" max="100" class="number-input" /></label>
+          <label class="checkbox-label"><input type="checkbox" id="use_gradient_gate" class="checkbox-input" /><span class="checkbox-text">use_gradient_gate</span></label>
+          <label class="input-group"><span class="label-text">seed_strategy</span>
+            <select id="seed_strategy" class="select-input"><option value="dark">dark</option><option value="bright">bright</option><option value="dt_peak">dt_peak</option></select>
+          </label>
+          <label class="checkbox-label"><input type="checkbox" id="return_lbp" class="checkbox-input" /><span class="checkbox-text">return_lbp</span></label>
+        </div></div>
+      </details>
+      <button type="button" id="runBtn" class="btn-primary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span class="btn-text">运行处理</span><div class="btn-ripple"></div>
+      </button>
+      <div id="loading" class="loading-container" hidden><div class="spinner"></div><span>处理中，请稍候...</span></div>
+      <div class="meta-container" id="metaContainer" hidden>
+        <div class="meta-header">
+          <span class="meta-title">处理元数据</span>
+          <button type="button" class="btn-copy" id="copyMeta" title="复制">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
+        <pre id="metaBox" class="meta-content"></pre>
+      </div>
+    </section>
+    <section class="results glass-card">
+      <h2 class="section-title">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>结果展示
+      </h2>
+      <div class="debug-panel" id="debugPanel">
+        <div class="debug-header">
+          <span class="debug-title">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            调试日志
+          </span>
+          <div class="debug-actions">
+            <button type="button" id="clearLog" class="btn-icon-sm" title="清空日志">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+            <button type="button" id="toggleLog" class="btn-icon-sm" title="展开/收起">
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="debug-content" id="debugLog"></div>
+      </div>
+      <div class="tabs">
+        <div class="tab-indicator"></div>
+        <button type="button" data-tab="overlay" class="tab active">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>叠加
+        </button>
+        <button type="button" data-tab="mask" class="tab">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>掩膜
+        </button>
+        <button type="button" data-tab="roi" class="tab">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>ROI
+        </button>
+        <button type="button" data-tab="pre" class="tab">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2 5.2l-4.2-4.2m0-6l4.2-4.2"/>
+          </svg>预处理
+        </button>
+        <button type="button" data-tab="lbp" class="tab">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>LBP
+        </button>
+      </div>
+      <div class="image-grid">
+        <figure class="image-card">
+          <figcaption class="image-caption">原图预览</figcaption>
+          <div class="image-wrapper">
+            <img id="previewOrig" alt="original" class="result-image" />
+            <div class="image-skeleton" id="skeletonOrig"></div>
+          </div>
+        </figure>
+        <figure class="image-card">
+          <figcaption class="image-caption" id="capMain">输出结果</figcaption>
+          <div class="image-wrapper">
+            <img id="previewMain" alt="result" class="result-image" />
+            <div class="image-skeleton" id="skeletonMain"></div>
+          </div>
+        </figure>
+      </div>
+      <div class="download-row">
+        <button type="button" id="dlOverlay" class="btn-download" disabled>
+          <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>下载 overlay.png
+        </button>
+        <button type="button" id="dlMask" class="btn-download" disabled>
+          <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>下载 mask.png
+        </button>
+      </div>
+    </section>
+  </main>
+  <div id="toastContainer" class="toast-container"></div>
+  <footer class="footer"><p>内部 BGR 处理；API 返回 PNG 为 RGB 编码。详见 README。</p></footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

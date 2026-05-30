@@ -10,7 +10,7 @@ import numpy as np
 
 from app.core.exceptions import ValidationError
 
-SegmentMethod = Literal["otsu_roi", "region_grow", "watershed"]
+SegmentMethod = Literal["otsu_roi", "region_grow", "watershed", "dual"]
 
 
 @dataclass
@@ -376,21 +376,28 @@ def segment_roi(gray_roi: np.ndarray, p: SegmentParams) -> Tuple[np.ndarray, Lis
     if p.method == "watershed":
         return segment_watershed(gray_roi, p)
     if p.method == "dual":
-        # Run both Otsu and region_grow, score each, pick the better one
-        mask_otsu = segment_otsu_triangle(gray_roi, p)
-        mask_rg = segment_region_grow(gray_roi, p)
+        # Compare Triangle vs Otsu — the two best threshold methods per 15-image benchmark
+        # Triangle wins on average (Dice=0.7856 vs 0.7604), but Otsu wins on ~13% of images
+        p_tri = SegmentParams(
+            method="otsu_roi", threshold_kind="triangle", morph_kernel=p.morph_kernel,
+        )
+        p_otsu = SegmentParams(
+            method="otsu_roi", threshold_kind="otsu", morph_kernel=p.morph_kernel,
+        )
+        mask_tri = segment_otsu_triangle(gray_roi, p_tri)
+        mask_otsu = segment_otsu_triangle(gray_roi, p_otsu)
 
+        score_tri = score_segmentation(mask_tri, gray_roi)
         score_otsu = score_segmentation(mask_otsu, gray_roi)
-        score_rg = score_segmentation(mask_rg, gray_roi)
 
-        if score_otsu >= score_rg:
-            if score_otsu < 0 and score_rg >= 0:
-                return mask_rg, warnings
-            return mask_otsu, warnings
-        else:
-            if score_rg < 0 and score_otsu >= 0:
+        if score_tri >= score_otsu:
+            if score_tri < 0 and score_otsu >= 0:
                 return mask_otsu, warnings
-            return mask_rg, warnings
+            return mask_tri, warnings
+        else:
+            if score_otsu < 0 and score_tri >= 0:
+                return mask_tri, warnings
+            return mask_otsu, warnings
     raise ValidationError(
         f"Unknown segment method: {p.method}",
         details={"method": p.method, "allowed": ["otsu_roi", "region_grow", "watershed", "dual"]},

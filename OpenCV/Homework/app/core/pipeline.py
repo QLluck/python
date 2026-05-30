@@ -28,14 +28,14 @@ class ProcessRequest:
     stage: Stage = "full"
     mode: str = "dermoscopy"                # 皮肤镜模式，利用LAB颜色辅助
     max_side: int = 1280
-    median_ksize: int = 5
-    use_bilateral: bool = True              # 双边滤波：保边去噪
+    median_ksize: int = 9                   # 中值滤波，9经验证最优 (+0.006 vs 5)
+    use_bilateral: bool = False             # 消融实验无显著提升，关掉省算力
     bilateral_d: int = 7                    # 稍大空间核
     bilateral_sigma_color: float = 75.0     # 更强颜色平滑
     bilateral_sigma_space: float = 50.0
-    clahe_clip: float = 3.0                 # 更强对比度增强
+    clahe_clip: float = 0.5                 # 温和对比度，消融实验验证最优
     clahe_tile: int = 8
-    use_tophat: bool = True
+    use_tophat: bool = False                # 默认关闭，破坏阈值分割对比度
     tophat_kernel: int = 21                 # 大核，黑素瘤通常较大
     use_blackhat: bool = False
     blackhat_kernel: int = 15
@@ -46,10 +46,10 @@ class ProcessRequest:
     max_component_area_ratio: float = 0.90
     roi_margin_ratio: float = 0.15          # 更大边距：边界不规则
     color_fusion: str = "or"                # OR融合：包含所有颜色线索
-    segment_method: str = "dual"            # 双路对比自动选优
-    threshold_in_segment: str = "otsu"
-    morph_kernel_segment: int = 5           # 稍大核平滑不规则边界
-    min_post_area: int = 30                 # 保留更多碎片
+    segment_method: str = "otsu_roi"        # 阈值分割，Triangle最优 (dual评分不可靠)
+    threshold_in_segment: str = "triangle"  # 15图验证: 0.7856 vs Otsu 0.7604
+    morph_kernel_segment: int = 5           # 5经验证最优 (+0.002 vs 3)
+    min_post_area: int = 100                # 100经验证最优，过滤更多噪声碎片
     grow_T: int = 20                        # 更大容差：边界渐变模糊
     grow_G: float = 0.0
     use_gradient_gate: bool = False
@@ -113,10 +113,10 @@ class ProcessRequest:
                 details={"segment_method": self.segment_method, "allowed": ["otsu_roi", "region_grow", "watershed", "dual"]},
             )
 
-        if self.threshold_in_segment not in ("otsu", "adaptive"):
+        if self.threshold_in_segment not in ("otsu", "triangle", "adaptive"):
             raise ValidationError(
-                f"Invalid threshold_in_segment '{self.threshold_in_segment}'. Must be one of: otsu, adaptive",
-                details={"threshold_in_segment": self.threshold_in_segment, "allowed": ["otsu", "adaptive"]},
+                f"Invalid threshold_in_segment '{self.threshold_in_segment}'. Must be one of: otsu, triangle, adaptive",
+                details={"threshold_in_segment": self.threshold_in_segment, "allowed": ["otsu", "triangle", "adaptive"]},
             )
 
         if self.seed_strategy not in ("dark", "bright", "dt_peak"):
@@ -148,6 +148,13 @@ def _append_run_log(row: Dict[str, Any], log_path: Path) -> None:
         if not file_exists:
             w.writeheader()
         w.writerow(full)
+
+
+def _normalize_for_display(gray: np.ndarray) -> np.ndarray:
+    """Stretch grayscale to full [0,255] range for preview only — does not modify pipeline input."""
+    if gray.max() <= gray.min():
+        return gray
+    return cv2.normalize(gray, None, 0, 255, cv2.NORM_MINMAX)
 
 
 def run(
@@ -192,6 +199,8 @@ def run(
         timings["decode_ms"] = int((time.perf_counter() - t_decode) * 1000)
 
         bgr = dec.bgr
+        gray_raw = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)  # raw contrast is best for thresholding
+        gray_raw = cv2.medianBlur(gray_raw, req.median_ksize)  # denoise: ksize=9 best per scan
         h, w = bgr.shape[:2]
         meta["w"] = w
         meta["h"] = h
@@ -224,7 +233,8 @@ def run(
         timings["preprocess_ms"] = int((time.perf_counter() - t_preprocess) * 1000)
 
         if req.stage == "preprocess_only":
-            pre_bgr = cv2.cvtColor(enhanced, cv2.COLOR_GRAY2BGR)
+            enhanced_disp = _normalize_for_display(enhanced)
+            pre_bgr = cv2.cvtColor(enhanced_disp, cv2.COLOR_GRAY2BGR)
             out["preprocess_png_b64"] = viz.bgr_to_png_rgb_b64(pre_bgr)
             meta["elapsed_ms"] = int((time.perf_counter() - t0) * 1000)
             meta["timings"] = timings
@@ -266,8 +276,9 @@ def run(
             _maybe_log(req, meta, log_dir, ok=True)
             return out
 
-        x, y, rw, rh = roi
-        gray_roi = enhanced[y : y + rh, x : x + rw]
+        x, y, rw, rh = 0,0,w,h;
+        # 用 raw 灰度做分割 — CLAHE 对全局阈值有轻微副作用 (15图验证 raw+Triangle=0.7856 最优)
+        gray_roi = gray_raw[y : y + rh, x : x + rw]
         if gray_roi.size == 0:
             raise ValueError("ROI is empty after detection.")
 
@@ -305,11 +316,28 @@ def run(
         out["overlay_png_b64"] = viz.bgr_to_png_rgb_b64(overlay)
         mask_bgr = cv2.cvtColor(full_mask, cv2.COLOR_GRAY2BGR)
         out["mask_png_b64"] = viz.bgr_to_png_rgb_b64(mask_bgr)
+        enhanced_disp = _normalize_for_display(enhanced)  # CLAHE-only, good contrast
+        pre_bgr = cv2.cvtColor(enhanced_disp, cv2.COLOR_GRAY2BGR)
+        out["preprocess_png_b64"] = viz.bgr_to_png_rgb_b64(pre_bgr)
         timings["viz_ms"] = int((time.perf_counter() - t_viz) * 1000)
 
         if req.return_lbp:
             t_lbp = time.perf_counter()
-            lbp_vis = lbp.uniform_lbp_image(enhanced)
+            # Tophat emphasizes local texture — compute on demand for LBP only
+            pp_lbp = preprocess.PreprocessParams(
+                median_ksize=req.median_ksize,
+                use_bilateral=req.use_bilateral,
+                bilateral_d=req.bilateral_d,
+                bilateral_sigma_color=req.bilateral_sigma_color,
+                bilateral_sigma_space=req.bilateral_sigma_space,
+                clahe_clip=req.clahe_clip,
+                clahe_tile=req.clahe_tile,
+                use_tophat=True,
+                tophat_kernel=req.tophat_kernel,
+                use_blackhat=False,
+            )
+            enhanced_lbp = preprocess.preprocess_gray(bgr, pp_lbp)
+            lbp_vis = lbp.uniform_lbp_image(enhanced_lbp)
             lbp_bgr = cv2.cvtColor(lbp_vis, cv2.COLOR_GRAY2BGR)
             lbp_bgr = viz.draw_roi(lbp_bgr, roi)
             out["lbp_png_b64"] = viz.bgr_to_png_rgb_b64(lbp_bgr)

@@ -139,7 +139,7 @@
           <input type="number" id="max_side" value="1280" min="64" max="4096" class="number-input" title="图像最大边长，范围 64-4096" />
         </label>
         <label class="input-group"><span class="label-text">median_ksize (奇数)</span>
-          <input type="number" id="median_ksize" value="5" step="2" min="1" max="31" class="number-input" title="中值滤波核大小，必须是奇数" />
+          <input type="number" id="median_ksize" value="9" step="2" min="1" max="31" class="number-input" title="中值滤波核大小，必须是奇数" />
         </label>
       </div>
       <details class="accordion" id="advPreprocess">
@@ -149,10 +149,10 @@
           </svg>预处理与检测
         </summary>
         <div class="accordion-content"><div class="param-grid">
-          <label class="checkbox-label"><input type="checkbox" id="use_bilateral" checked class="checkbox-input" /><span class="checkbox-text">use_bilateral</span></label>
-          <label class="input-group"><span class="label-text">CLAHE clip</span><input type="number" id="clahe_clip" value="3.0" step="0.1" min="0.1" max="10" class="number-input" /></label>
+          <label class="checkbox-label"><input type="checkbox" id="use_bilateral" class="checkbox-input" /><span class="checkbox-text">use_bilateral</span></label>
+          <label class="input-group"><span class="label-text">CLAHE clip</span><input type="number" id="clahe_clip" value="0.5" step="0.1" min="0.1" max="10" class="number-input" /></label>
           <label class="input-group"><span class="label-text">CLAHE tile</span><input type="number" id="clahe_tile" value="8" min="2" max="32" class="number-input" /></label>
-          <label class="checkbox-label"><input type="checkbox" id="use_tophat" checked class="checkbox-input" /><span class="checkbox-text">use_tophat</span></label>
+          <label class="checkbox-label"><input type="checkbox" id="use_tophat" class="checkbox-input" /><span class="checkbox-text">use_tophat</span></label>
           <label class="input-group"><span class="label-text">tophat_kernel</span><input type="number" id="tophat_kernel" value="21" min="3" max="51" step="2" class="number-input" title="必须是奇数" /></label>
           <label class="checkbox-label"><input type="checkbox" id="use_blackhat" class="checkbox-input" /><span class="checkbox-text">use_blackhat</span></label>
           <label class="input-group"><span class="label-text">detect_threshold</span>
@@ -175,14 +175,14 @@
         <div class="accordion-content"><div class="param-grid">
           <label class="input-group"><span class="label-text">segment_method</span>
             <select id="segment_method" class="select-input">
-              <option value="dual" selected>dual (自动选优)</option><option value="otsu_roi">otsu_roi</option><option value="region_grow">region_grow</option><option value="watershed">watershed</option>
+              <option value="otsu_roi" selected>otsu_roi (Triangle)</option><option value="dual">dual</option><option value="region_grow">region_grow</option><option value="watershed">watershed</option>
             </select>
           </label>
           <label class="input-group"><span class="label-text">threshold_in_segment</span>
-            <select id="threshold_in_segment" class="select-input"><option value="otsu">otsu</option><option value="triangle">triangle</option></select>
+            <select id="threshold_in_segment" class="select-input"><option value="otsu">otsu</option><option value="triangle" selected>triangle</option></select>
           </label>
-          <label class="input-group"><span class="label-text">morph_kernel</span><input type="number" id="morph_kernel_segment" value="3" min="3" max="31" step="2" class="number-input" title="必须是奇数" /></label>
-          <label class="input-group"><span class="label-text">min_post_area</span><input type="number" id="min_post_area" value="50" min="1" max="1000" class="number-input" /></label>
+          <label class="input-group"><span class="label-text">morph_kernel</span><input type="number" id="morph_kernel_segment" value="5" min="3" max="31" step="2" class="number-input" title="必须是奇数" /></label>
+          <label class="input-group"><span class="label-text">min_post_area</span><input type="number" id="min_post_area" value="100" min="1" max="1000" class="number-input" /></label>
           <label class="input-group"><span class="label-text">grow_T</span><input type="number" id="grow_T" value="20" min="1" max="255" class="number-input" /></label>
           <label class="input-group"><span class="label-text">grow_G</span><input type="number" id="grow_G" value="0" step="0.1" min="0" max="100" class="number-input" /></label>
           <label class="checkbox-label"><input type="checkbox" id="use_gradient_gate" class="checkbox-input" /><span class="checkbox-text">use_gradient_gate</span></label>

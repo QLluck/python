@@ -179,6 +179,7 @@ async def general_exception_handler(request: Request, exc: Exception) -> JSONRes
 
 
 app.include_router(router)
+
 app.include_router(ml_router)
 
 
